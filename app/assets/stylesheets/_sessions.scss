@@ -1,0 +1,83 @@
+.sign-in-page {
+    width: 100%;
+    height: 100vh;
+    background-image: url('wallpaper.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+
+    .sign-in-window {
+        width: 350px;
+        height: 70%;
+        margin: auto;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.6);
+        background-color:  white;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        fieldset {
+            border: none;
+        }
+
+        .avatar-container {
+            position: absolute;
+            left: 33%;
+            top: -65px;
+            img {
+                width: 120px;
+                height: auto;
+                border-radius: 50%;
+            }
+        }
+
+        .login-header {
+            margin-top: 70px;
+            h4 {
+                font-weight: 300;
+                color: rgba(0, 0, 0, 0.7);
+                font-size: 24px;
+                text-align: center;
+            }
+        }
+
+        .error-header-container {
+            height: 30px;
+            padding: 8px;
+            h5.error-header {
+                margin: 0 auto;
+                width: 80%;
+                text-align: center;
+                background-color:#E57373;
+                padding: 8px;
+                border-radius: 3px;
+                color: #f4f4f4;
+            }
+        }
+
+        .form-row {
+            width: 100%;
+            text-align: center;
+            margin-top:  20px;
+
+            * {
+                font-family: montserrat, arial, verdana;
+            }
+
+            input[type=text], input[type=password] {
+                padding: 8px;
+                border: 1px solid rgba(0, 0, 0, 0.4);
+                font-size: 16px;
+            }
+
+            input[type=submit] {
+                border: 1px solid transparent;
+                border-radius: 3px;
+                padding: 10px 15px;
+                background-color: #1E88E5;
+                color: white;
+                cursor: pointer;
+            }
+        }
+    }
+}
