@@ -1,0 +1,99 @@
+.event-creation {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    .create-event-section {
+        margin: auto;
+        height: 60%;
+        width: 80%;
+        fieldset {
+            border: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .errors-section {
+                border: 1px solid black;
+                height: 40px;
+                width: 60%;
+                margin: auto;
+            }
+            .file-upload,
+            .event-caption,
+            .create-event {
+                width: 60%;
+                margin: 10px auto auto auto;
+            }
+
+            .file-upload {
+                input[type=file] {
+                    width: 0.1px;
+                    height: 0.1px;
+                    opacity: 0;
+                    overflow: hidden;
+                    position: absolute;
+                    z-index: -1;
+                    & + label {
+                        cursor: pointer;
+                    }
+                    &:focus + label,
+                    & + label:hover {
+                        background-color: #1565C0;
+                        outline: 1px dotted #000;
+                        outline: -webkit-focus-ring-color auto 5px;
+                    }
+                }
+
+                label {
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: white;
+                    background-color:#1976D2;
+                    padding: 10px 15px;
+                    display: inline-block;
+                    border-radius: 4px;
+                    font-family: lato, arial, verdana;
+
+                    i.fa-file-upload {
+                        font-size: 16px;
+                        margin-right: 10px;
+                    }
+                }
+
+                span.selected-file {
+                    margin-left: 10px;
+                    font-family: lato, arial, verdana;
+                    color: rgba(0, 0, 0, 0.6);
+                }
+            }
+
+            .event-caption {
+                textarea {
+                    width: 100%;
+                    height: 200px;
+                    resize: none;
+                    font-size: 14px;
+                    font-family: lato, arial, verdana;
+                    padding: 10px;
+                    outline: none;
+                    border-radius: 5px;
+                    border: 1px solid rgba(0, 0, 0, 0.25);
+                    letter-spacing: 1.5px;
+                }
+            }
+
+            .create-event {
+                text-align: center;
+                input[type=submit] {
+                    background-color: #90CAF9;
+                    cursor: pointer;
+                    padding: 10px 15px;
+                    font-size: 14px;
+                    color: #fefefe;
+                    border-radius: 3px;
+                    border: 1px solid #64B5F6;
+                }
+            }
+        }
+    }
+}

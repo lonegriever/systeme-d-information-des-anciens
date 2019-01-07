@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  get 'events/create'
     root to: 'sessions#test'
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     resources :sessions
     
-    get 'admin/home',   to: 'admins#home', as: 'admin_home'
+    resources :events, only: [:create, :new]
 end

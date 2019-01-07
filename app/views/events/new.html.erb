@@ -1,0 +1,28 @@
+<div class="event-creation">
+    <%= render partial: 'navigation' %>
+    <div class="create-event-section">
+        <div class="errors-section">
+            <% if @event.errors.present? %>
+                <% @event.errors.full_messages.each do |error| %>
+                    <span><%= error %></span>
+                <% end %>
+            <% end %>
+        </div>
+        <%= form_for @event do |f| %>
+            <fieldset>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <div class="file-upload">
+                    <%= f.file_field :file %>
+                    <label for="event_file"><i class="fas fa-file-upload"></i>Select a file</label>
+                    <span class='selected-file'></span>
+                </div>
+                <div class="event-caption">
+                    <%= f.text_area :caption %>
+                </div>
+                <div class="create-event">
+                    <%= f.submit 'Upload' %>
+                </div>
+            </fieldset>
+        <% end %>
+    </div>
+</div>
