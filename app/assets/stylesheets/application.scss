@@ -19,5 +19,8 @@
     margin: 0;
 }
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import 'navigation';
 @import 'sessions';
-@import 'admins';
+@import 'admin/admin';
+@import 'media-query/main';
