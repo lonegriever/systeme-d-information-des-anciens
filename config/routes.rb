@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  get 'events/create'
+    get 'events/create'
+    get    '/login' , to: 'sessions#new'    , as: 'login'
+    delete '/logout', to: 'sessions#destroy', as: 'logout'
+
     root to: 'sessions#test'
-    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     resources :sessions
     
-    resources :events, only: [:create, :new]
+    resources :events, only: [:create, :new, :index]
 end

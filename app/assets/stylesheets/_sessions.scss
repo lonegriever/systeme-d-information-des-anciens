@@ -8,7 +8,7 @@
 
     .sign-in-window {
         width: 350px;
-        height: 70%;
+        height: 55%;
         margin: auto;
         border-radius: 4px;
         box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.6);
@@ -77,6 +77,11 @@
                 background-color: #1E88E5;
                 color: white;
                 cursor: pointer;
+                font-size: 14px;
+                transition: background-color 0.2s ease;
+                &:hover {
+                    background-color: #1565C0;
+                }
             }
         }
     }

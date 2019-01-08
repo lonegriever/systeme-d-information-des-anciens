@@ -1,0 +1,32 @@
+.events-index {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f4f4f4;
+    .event {
+        width: 50%;
+        margin: 15px auto;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        figure {
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        p {
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            margin-top: 10px;
+            font-family: lato, arial, verdana;
+            border-radius: 4px;
+            padding: 15px;
+            text-align: justify;
+            letter-spacing: 1px;
+            line-height: 30px;
+        }
+        
+    }
+}

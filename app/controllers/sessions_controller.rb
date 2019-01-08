@@ -1,17 +1,24 @@
 class SessionsController < ApplicationController
     include SessionsHelper
+
     def new
     end
 
     def create
         user = User.find_by(username: session_params[:username])
         if user && user.authenticate(session_params[:password])
-            session[:user_id] = user.id
+            
+            cookies.permanent[:authentication_token] = user.authentication_token
             redirect_user
         else
             flash.now.alert = 'Username or Passsord is incorrect'
             render :new
         end
+    end
+
+    def destroy
+        cookies.delete(:authentication_token)
+        redirect_to login_path, notice: 'Logged out!'
     end
 
     def test
@@ -25,7 +32,7 @@ class SessionsController < ApplicationController
 
     def redirect_user
         if current_user.is_an_admin
-            redirect_to admin_home_path
+            redirect_to new_event_path
         else
             redirect_to root_url, notice: 'Log in successful!'
         end    
