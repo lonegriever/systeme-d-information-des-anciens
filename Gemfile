@@ -65,3 +65,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'carrierwave', '~> 1.0'
 # javascript library
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
+# pagination
+gem 'kaminari'

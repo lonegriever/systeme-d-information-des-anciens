@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_many :events
     validates :username, uniqueness: true
     
-    before_create { generate_token(:authentication_token) }
+    before_create { generate_authentication_token(:authentication_token) }
     before_save { self.username = self.username.downcase }
     
     def is_an_admin
@@ -13,6 +13,6 @@ class User < ApplicationRecord
     def generate_authentication_token column
         begin
             self[column] = SecureRandom.urlsafe_base64
-        end while User.exists?(column: self[column])
+        end while User.find_by(column => self[column])
     end
 end

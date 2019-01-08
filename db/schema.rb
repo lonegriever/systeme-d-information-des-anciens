@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_08_075406) do
+ActiveRecord::Schema.define(version: 2019_01_08_082221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alumnus_records", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "gender"
+    t.date "birth_date"
+    t.string "course"
+    t.date "date_graduated"
+    t.string "employment_status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_alumnus_records_on_user_id"
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "file"
@@ -34,5 +49,6 @@ ActiveRecord::Schema.define(version: 2019_01_08_075406) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "alumnus_records", "users"
   add_foreign_key "events", "users"
 end

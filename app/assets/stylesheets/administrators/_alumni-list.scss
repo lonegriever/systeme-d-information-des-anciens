@@ -1,0 +1,42 @@
+.alumni-list {
+    width: 100%;
+    table {
+        width: 1268px;
+        // display: flex;
+        margin: 15px auto auto ;
+        box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.4);
+        border-collapse: collapse;
+        border-radius: 4px;
+        tr {
+            &:not(:first-of-type) {
+                border-top: 1px solid rgba(0, 0, 0, 0.25);
+            }
+
+            td {
+                &:first-of-type,
+                &:nth-of-type(2),
+                &:nth-of-type(3),
+                &:nth-of-type(4) {
+                    text-align: center;
+                }
+            }
+        }
+
+        tr.headers-row th, td {
+            text-align: center;
+            width: 300px;
+            padding: 15px 10px;
+            
+            &:first-of-type,
+            &:nth-of-type(2),
+            &:nth-of-type(3) {
+                width: 10%;
+            }
+
+            &:nth-of-type(4) {
+                width: 15%;
+            }
+
+        }
+    }   
+}
