@@ -1,7 +1,7 @@
 .alumni-list {
     width: 100%;
     table {
-        width: 1268px;
+        width: 1250px;
         // display: flex;
         margin: 15px auto auto ;
         box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.4);
@@ -19,13 +19,14 @@
                 &:nth-of-type(4) {
                     text-align: center;
                 }
+                font-family: lato, arial, verdana;
             }
         }
 
         tr.headers-row th, td {
             text-align: center;
             width: 300px;
-            padding: 15px 10px;
+            padding: 15px 5px;
             
             &:first-of-type,
             &:nth-of-type(2),
@@ -36,7 +37,17 @@
             &:nth-of-type(4) {
                 width: 15%;
             }
-
+        }
+        td:first-of-type,
+        td:nth-of-type(5) {
+            text-align: left !important;
+            padding-left: 8px;
+        }
+        td:nth-of-type(6) {
+            width: 9.6%;
+        }
+        td:nth-of-type(7) {
+            width: 10%;
         }
     }   
 }
