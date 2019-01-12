@@ -1,0 +1,22 @@
+<fieldset class="second-window">
+    <%= f.text_field :first_name, placeholder:  'First Name' %>
+    <%= f.text_field :last_name, placeholder: 'Last Name' %>
+    <%= f.email_field :email, placeholder: 'Email' %>
+    <div class="gender-select-section">
+        <%= f.label :gender, 'Gender:' %>
+        <%= f.select :gender, options_for_select([['Male', 'male'], ['Female', 'female']]) %>
+    </div>
+    <div class="birth-date-section">
+        <%= f.label :birth_date, 'Birth Date:' %>
+        <%= f.text_field :birth_date %>
+    </div>
+    <div class="form-navigation">
+        <div class="back-button-container">
+            <button type="button" class="back-button">Go Back</button>
+        </div>
+        <div class="next-button-container">
+            <button type="button" class="next-button">Next</button>
+        </div>
+        
+    </div>
+</fieldset>

@@ -11,11 +11,15 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui/widgets/datepicker
 //= require rails-ujs
+//= require Chart.min
 //= require activestorage
 //= require turbolinks
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
     events();
+    administrators();
+    users();
 })

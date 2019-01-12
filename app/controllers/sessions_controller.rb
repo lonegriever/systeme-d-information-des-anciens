@@ -7,8 +7,7 @@ class SessionsController < ApplicationController
     def create
         user = User.find_by(username: session_params[:username])
         if user && user.authenticate(session_params[:password])
-            
-            cookies.permanent[:authentication_token] = user.authentication_token
+            log_user_in
             redirect_user
         else
             flash.now.alert = 'Username or Passsord is incorrect'

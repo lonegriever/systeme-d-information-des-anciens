@@ -67,3 +67,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 # pagination
 gem 'kaminari'
+# charts
+gem 'chart-js-rails'
+# datepicker
+gem 'jquery-ui-rails'

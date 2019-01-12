@@ -1,0 +1,17 @@
+<div class="new-user-page">
+    <%= form_for @user, url: create_user_path, class: 'user-form' do |f| %>
+        <fieldset class="username-password">
+            <h4>Create Account</h4>
+            <%= f.text_field :username, placeholder: 'Username' %>
+            <%= f.password_field :password, placeholder: 'Password' %>
+            <%= f.password_field :password_confirmation, placeholder: 'Confirm Password' %>
+            <%= link_to 'Already have an account', login_path %>
+            <button type="button" class="next-button">Next</button>
+        </fieldset>
+
+        <%= fields_for :alumnus_record do |f| %>
+            <%= render 'alumnus_record_fields', f:f %>
+        <% end %>
+       
+    <% end %>
+</div>

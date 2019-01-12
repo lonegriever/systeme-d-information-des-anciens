@@ -1,6 +1,8 @@
 class User < ApplicationRecord
     has_secure_password
     has_many :events
+    has_one :alumnus_record
+    accepts_nested_attributes_for :alumnus_record
     validates :username, uniqueness: true
     
     before_create { generate_authentication_token(:authentication_token) }
