@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     def create
         user = User.find_by(username: session_params[:username])
         if user && user.authenticate(session_params[:password])
-            log_user_in
+            log_user_in(user)
             redirect_user
         else
             flash.now.alert = 'Username or Passsord is incorrect'

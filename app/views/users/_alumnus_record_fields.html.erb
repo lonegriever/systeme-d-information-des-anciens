@@ -10,13 +10,33 @@
         <%= f.label :birth_date, 'Birth Date:' %>
         <%= f.text_field :birth_date %>
     </div>
-    <div class="form-navigation">
-        <div class="back-button-container">
-            <button type="button" class="back-button">Go Back</button>
-        </div>
-        <div class="next-button-container">
-            <button type="button" class="next-button">Next</button>
-        </div>
-        
+    <%= render partial: 'users/common/form-navigation' %>
+</fieldset>
+<fieldset class="third-window">
+    <div class="course-select-section">
+        <%= f.label  :course, 'Course:' %>
+        <%= f.select :course, courses %>
     </div>
+    <div class="year-graduated-select-section">
+        <%= f.label :year_graduated %>
+        <%= f.select :year_graduated, year_graduated_options %>
+    </div>
+    <h5>Employment Status</h5>
+    <div class="employment-status-radio-section">
+        <%= f.radio_button :employment_status, 'employed', checked: true %>
+        <%= f.label :employment_status, 'Employed', value: 'employed' %>
+        <%= f.radio_button :employment_status, 'unemployed' %>
+        <%= f.label :employment_status, 'Unemployed', value: 'unemployed' %>
+    </div>
+    <%= render partial: 'users/common/form-navigation' %>
+</fieldset>
+<fieldset class="employment-information-window">
+    <h5>Employment Information</h5>
+</fieldset>
+<fieldset class="unemployment-reason-window">
+    <div class="unemployment-reason-section">
+        <%= f.label :reason_for_unemployment, 'Why are you not employed?' %>
+        <%= f.text_area :reason_for_unemployment %>
+    </div>
+    <%= render partial: 'users/common/form-navigation' %>
 </fieldset>

@@ -11,8 +11,10 @@ function users() {
     $('.next-button').click(function() {
         if (animating) return false;
 
-        current_form_window = $(this).parent();
-        next_form_window = $(this).parent().next();
+        console.log($('#alumnus_record_employment_status_employed').prop('checked'));
+
+        current_form_window = $(this).closest('fieldset');
+        next_form_window = $(this).closest('fieldset').next();
 
         next_form_window.show();
         current_form_window.animate({opacity: 0}, {

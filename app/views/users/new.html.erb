@@ -6,7 +6,9 @@
             <%= f.password_field :password, placeholder: 'Password' %>
             <%= f.password_field :password_confirmation, placeholder: 'Confirm Password' %>
             <%= link_to 'Already have an account', login_path %>
-            <button type="button" class="next-button">Next</button>
+            <div class="form-navigation">
+                <button type="button" class="next-button">Next</button>
+            </div>
         </fieldset>
 
         <%= fields_for :alumnus_record do |f| %>

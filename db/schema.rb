@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(version: 2019_01_08_082221) do
     t.string "gender"
     t.date "birth_date"
     t.string "course"
-    t.date "date_graduated"
+    t.integer "year_graduated"
     t.string "employment_status"
+    t.text "reason_for_unemployment"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

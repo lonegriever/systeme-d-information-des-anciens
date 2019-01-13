@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     def create
         if @user.save
-            log_user_in
+            log_user_in(@user)
             redirect_to events_path, notice: "Registration Successful"
         else
             render :new

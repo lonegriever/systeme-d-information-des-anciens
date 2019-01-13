@@ -7,8 +7,9 @@ class CreateAlumnusRecords < ActiveRecord::Migration[5.2]
       t.string :gender
       t.date :birth_date
       t.string :course
-      t.date :date_graduated
+      t.integer :year_graduated
       t.string :employment_status
+      t.text :reason_for_unemployment
       t.references :user, foreign_key: true
 
       t.timestamps
