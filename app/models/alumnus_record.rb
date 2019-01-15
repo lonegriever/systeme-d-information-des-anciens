@@ -1,6 +1,6 @@
 class AlumnusRecord < ApplicationRecord
     belongs_to :user, optional: true
-    has_one :employment_record
+    has_one :employment_record, dependent: :destroy
     accepts_nested_attributes_for :employment_record
 
     def full_name

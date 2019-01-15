@@ -22,12 +22,27 @@
                 cursor: pointer;
                 padding: 10px;
                 transition: background-color 0.2s ease;
-                background-color: transparent;
                 border-radius: 4px;
                 &:hover {
                     background-color: #0D47A1;
                 }
             }
+        }
+    }
+
+    .user-navigation {
+        width: 30%;
+        li {
+            text-transform: none;
+            color: #f4f4f4;
+            span {
+                color: #f4f4f4;
+                margin-left: 15px;
+            }
+        }
+        li.logged-in-as {
+            background-color: #0D47A1;
+            padding: 0 10px;
         }
     }
 }

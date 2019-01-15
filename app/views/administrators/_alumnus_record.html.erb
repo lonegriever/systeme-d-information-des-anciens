@@ -1,7 +1,7 @@
 <tr>
     <td><%= alumnus_record.full_name %></td>
     <td><%= alumnus_record.email %></td>
-    <td><%= alumnus_record.gender %></td>
+    <td><%= alumnus_record.gender.capitalize %></td>
     <td><%= alumnus_record.birth_date.to_formatted_s(:long) %></td>
     <td><%= alumnus_record.course %></td>
     <td><%= alumnus_record.year_graduated %></td>

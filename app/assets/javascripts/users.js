@@ -20,12 +20,10 @@ function users() {
     let left, opacity, scale;
     $('.next-button').click(function() {
         if (animating) return false;
-
-        console.log($('#alumnus_record_employment_status_employed').prop('checked'));
+        animating = true;
 
         current_form_window = $(this).closest('fieldset');
-        next_form_window = $(this).closest('fieldset').next();
-
+        next_form_window = setNextAndPreviousFormWindow('next', current_form_window);
         next_form_window.show();
         current_form_window.animate({opacity: 0}, {
             step: function(now, mx) {
@@ -50,7 +48,7 @@ function users() {
         animating = true;
 
         current_form_window = $(this).closest('fieldset');
-        previous_form_window = $(this).closest('fieldset').prev();
+        previous_form_window = setNextAndPreviousFormWindow('back', current_form_window);
 
         previous_form_window.show();
         current_form_window.animate({opacity: 0}, {
@@ -72,4 +70,27 @@ function users() {
             }
         })       
     })
+}
+
+function setNextAndPreviousFormWindow(movement, current_form_window) {
+
+    if (movement === 'next') {
+        if (current_form_window.hasClass('third-window')) {
+            if ($('#user_alumnus_record_attributes_employment_status_employed').prop('checked')) {
+                next_form_window = $('fieldset.employment-information-window');
+            } else {
+                next_form_window = $('fieldset.unemployment-reason-window');
+            }
+        } else {
+            next_form_window = $(current_form_window).closest('fieldset').next();
+        }
+        return next_form_window;
+    } else if(movement === 'back') {
+        if (current_form_window.hasClass('unemployment-reason-window') || current_form_window.hasClass('employment-information-window')) {
+            previous_form_window = $('fieldset.third-window');
+        } else {
+            previous_form_window = $(current_form_window).closest('fieldset').prev();
+        }
+        return previous_form_window;
+    }
 }

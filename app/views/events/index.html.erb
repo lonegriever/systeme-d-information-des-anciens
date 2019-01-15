@@ -1,4 +1,9 @@
 <div class="events-index">
-    <%= render partial: 'common/navigation' %>
+    <% if current_user.is_an_admin %>
+        <%= render partial: 'common/navigation' %>
+    <% else %>
+        <%= render partial: 'common/user-navigation' %>
+    <% end %>
+    
     <%= render @events %>
 </div>

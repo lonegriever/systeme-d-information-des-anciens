@@ -1,12 +1,15 @@
 .new-user-page {
     width: 100%;
-    height: 95vh;
+    height: 100vh;
     text-align: center;
     margin: auto;
+    background-image: url('wallpaper.jpg');
+    background-attachment: fixed;
+    background-size: cover;
     form {
-        
         width: 450px;
-        margin: 10px auto;
+        padding-top: 5%;
+        margin: auto;
         border-radius: 5px;
         position: relative;
         fieldset {
@@ -18,6 +21,8 @@
             flex-direction: column;
             position: relative;
             box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.35);
+            background-color: #f4f4f4;
+            border-radius: 4px;
             &:not(:first-of-type) {
                 display: none;
             }
@@ -124,7 +129,7 @@
                 letter-spacing: 1.5px;
             }
 
-            button.next-button, button.back-button {
+            button.next-button, button.back-button, button.submit-button {
                 border: none;
                 padding: 10px 15px;
                 background-color: #1E88E5;
