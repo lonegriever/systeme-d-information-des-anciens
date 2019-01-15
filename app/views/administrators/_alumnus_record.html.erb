@@ -4,6 +4,6 @@
     <td><%= alumnus_record.gender %></td>
     <td><%= alumnus_record.birth_date.to_formatted_s(:long) %></td>
     <td><%= alumnus_record.course %></td>
-    <td><%= alumnus_record.date_graduated.year %></td>
-    <td><%= alumnus_record.employment_status %></td>
+    <td><%= alumnus_record.year_graduated %></td>
+    <td><%= alumnus_record.employment_status.capitalize %></td>
 </tr>

@@ -10,10 +10,8 @@
                 <button type="button" class="next-button">Next</button>
             </div>
         </fieldset>
-
-        <%= fields_for :alumnus_record do |f| %>
+        <%= f.fields_for :alumnus_record do |f| %>
             <%= render 'alumnus_record_fields', f:f %>
         <% end %>
-       
     <% end %>
 </div>

@@ -11,7 +11,7 @@ AlumnusRecord.create!(
     gender: "Male",
     birth_date: Time.now.to_date.to_formatted_s,
     course: 'Bachelor of Science in Information Technology',
-    date_graduated: Time.now.to_date.to_formatted_s,
+    year_graduated: Time.now.to_date.to_formatted_s,
     employment_status: "Employed"
 )
 
@@ -22,7 +22,7 @@ AlumnusRecord.create!(
     gender: "Male",
     birth_date: Time.now.to_date.to_formatted_s,
     course: 'Bachelor of Science in Mechanical Engineering',
-    date_graduated: Time.now.to_date.to_formatted_s,
+    year_graduated: Time.now.to_date.to_formatted_s,
     employment_status: "Employed"
 )
 
@@ -33,7 +33,7 @@ AlumnusRecord.create!(
     gender: "Male",
     birth_date: Time.now.to_date.to_formatted_s,
     course: 'Bachelor of Science in Music',
-    date_graduated: Time.now.to_date.to_formatted_s,
+    year_graduated: Time.now.to_date.to_formatted_s,
     employment_status: "Employed"
 )
 
@@ -44,7 +44,7 @@ AlumnusRecord.create!(
     gender: "Male",
     birth_date: Time.now.to_date.to_formatted_s,
     course: 'Bachelor of Science in Biology',
-    date_graduated: Time.now.to_date.to_formatted_s,
+    year_graduated: Time.now.to_date.to_formatted_s,
     employment_status: "Employed"
 )
 
@@ -55,7 +55,7 @@ AlumnusRecord.create!(
     gender: "Male",
     birth_date: Time.now.to_date.to_formatted_s,
     course: 'Bachelor of Science in Chemistry',
-    date_graduated: Time.now.to_date.to_formatted_s,
+    year_graduated: Time.now.to_date.to_formatted_s,
     employment_status: "Employed"
 )
 
@@ -66,7 +66,7 @@ AlumnusRecord.create!(
     gender: "Male",
     birth_date: Time.now.to_date.to_formatted_s,
     course: 'Bachelor of Science in Medical Technology',
-    date_graduated: Time.now.to_date.to_formatted_s,
+    year_graduated: Time.now.to_date.to_formatted_s,
     employment_status: "Unemployed"
 )
 
@@ -77,7 +77,7 @@ AlumnusRecord.create!(
     gender: "Male",
     birth_date: Time.now.to_date.to_formatted_s,
     course: 'Bachelor of Science in Business Administration',
-    date_graduated: Time.now.to_date.to_formatted_s,
+    year_graduated: Time.now.to_date.to_formatted_s,
     employment_status: "Unemployed"
 )
 

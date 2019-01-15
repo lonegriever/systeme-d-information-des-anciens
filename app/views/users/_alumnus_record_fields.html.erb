@@ -32,6 +32,9 @@
 </fieldset>
 <fieldset class="employment-information-window">
     <h5>Employment Information</h5>
+    <%= f.fields_for :employment_record do |employment_record| %>
+        <%= render 'employment_record', employment_record: employment_record %>
+    <% end %>
 </fieldset>
 <fieldset class="unemployment-reason-window">
     <div class="unemployment-reason-section">

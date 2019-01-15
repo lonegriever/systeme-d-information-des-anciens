@@ -1,7 +1,17 @@
 function users() {
-    $('#alumnus_record_birth_date').datepicker({
-        dateFormat: 'yy-mm-dd'
+    $('#user_alumnus_record_attributes_birth_date').datepicker({
+        yearRange: '1950:2019',
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'MM dd, yy'
     });
+
+    $('#user_alumnus_record_attributes_employment_record_attributes_date_started').datepicker({
+        yearRange: '1950:2019',
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'MM dd, yy'
+    })
 
     let current_form_window;
     let next_form_window;
