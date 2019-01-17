@@ -1,0 +1,76 @@
+.show-alumnus-record {
+    height: 100vh;
+    background-color: #f9f9f9;
+    width: 100vw;
+    overflow: auto;
+    * {
+        font-family: lato, arial, verdana;
+        color: rgba(0, 0, 0, 0.65); 
+    }
+
+     .header, .header-second {
+        margin-top: 20px;
+        background-color: #64B5F6;
+        height: 60px;
+        text-align: center;
+        img {
+            position: relative;
+            top: -35%;
+            height: 140px;
+            width: auto;
+        }
+    }
+
+    .header-second {
+        margin-top: 60px;
+        img {
+            top: -70%;
+        }
+    }
+
+    .subtitle {
+        height: 40px;
+        text-align: center;
+        margin: 50px auto 0 auto; 
+        h4 {
+            margin: auto;
+            line-height: 40px;
+            vertical-align: middle;
+            font-size: 24px;
+        }
+    }
+    
+    .alumnus-record, .employment-information, .unemployment-information {
+        background-color: #fefefe;
+        box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.25);
+        width: 600px;
+        margin: 20px auto;
+        transform: translateY(20px);
+        display: flex;
+        flex-direction: column;
+        .row {
+            display: flex;
+            flex-direction: row;
+            .column, .single-column {
+                flex: 1 1 50%;
+                padding: 6px;
+                display: flex;
+                flex-direction: column;
+                .value, .description {
+                    text-align: center;
+                    padding: 10px;
+                    height: 50px;
+                }
+                .value {
+                    color: rgba(0, 0, 0, 0.9);
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+                }
+            }
+
+            .single-column {
+                flex: 1 1 100%;
+                width: 100%;
+            }
+        }
+    }
+}

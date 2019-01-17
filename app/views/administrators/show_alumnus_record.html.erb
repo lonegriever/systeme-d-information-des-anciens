@@ -1,3 +1,143 @@
 <div class="show-alumnus-record">
-    
+    <div class="header">
+        <img src="/assets/graduation-hat-min.png" alt="">
+    </div>
+    <div class="subtitle">
+        <h4>Alumnus Record</h4>
+    </div>
+    <div class="alumnus-record">
+        <div class="row">
+            <div class="column">
+                <div class="value"><%= @alumnus_record.first_name.capitalize %></div>
+                <div class="description">First Name</div>
+            </div>
+            <div class="column">
+                <div class="value">
+                    <%= @alumnus_record.last_name.capitalize %>
+                </div>
+                <div class="description">
+                    Last Name
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="value">
+                    <%= @alumnus_record.email %>
+                </div>
+                <div class="description">
+                    Email
+                </div>
+            </div>
+            <div class="column">
+                <div class="value">
+                    <%= @alumnus_record.gender.capitalize %>
+                </div>
+                <div class="description">
+                    Gender
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="value">
+                    <%= @alumnus_record.birth_date.to_formatted_s(:long) %>
+                </div>
+                <div class="description">
+                    Birth Date
+                </div>
+            </div>
+            <div class="column">
+                <div class="value">
+                    <%= @alumnus_record.year_graduated %>
+                </div>
+                <div class="description">
+                    Year Graduated
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="single-column">
+                <div class="value">
+                    <%= @alumnus_record.course %>
+                </div>
+                <div class="description">
+                    Course
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-second">
+        <img src="/assets/bc-employment" alt="">
+    </div>
+     <div class="subtitle">
+        <h4>Employment Information</h4>
+    </div>
+    <% if @alumnus_record.employment_status.downcase == 'employed' %>
+        <div class="employment-information">
+            <div class="row">
+                <div class="single-column">
+                    <div class="value">
+                        <%= @employment_record.company_name %>
+                    </div>
+                    <div class="description">
+                        Company Name
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="single-column">
+                    <div class="value">
+                        <%= @employment_record.position %>
+                    </div>
+                    <div class="description">
+                        Position
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="single-column">
+                    <div class="value">
+                        <%= @employment_record.date_started.to_formatted_s(:long) %>
+                    </div>
+                    <div class="description">
+                        Date Started
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="single-column">
+                    <div class="value">
+                        <%= number_to_currency(@employment_record.salary, unit: '₱ ', delimiter: ' ,') %>
+                    </div>
+                    <div class="description">
+                        Salary
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% else %>
+        <div class="unemployment-information">
+            <div class="row">
+                <div class="single-column">
+                    <div class="value">
+                        <%= @alumnus_record.employment_status.capitalize %>
+                    </div>
+                    <div class="description">
+                        Employment Status
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="single-column">
+                    <div class="value">
+                        <%= @alumnus_record.reason_for_unemployment %>
+                    </div>
+                    <div class="description">
+                        Reason for Unemployment
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
 </div>

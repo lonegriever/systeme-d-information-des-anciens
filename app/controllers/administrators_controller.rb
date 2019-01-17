@@ -16,6 +16,7 @@ class AdministratorsController < ApplicationController
 
     def show_alumnus_record
         @alumnus_record = AlumnusRecord.find_by(id: params[:id])
+        @employment_record = @alumnus_record.employment_record
     end
 
     private

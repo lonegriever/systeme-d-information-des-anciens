@@ -195,7 +195,8 @@ AlumnusRecord.create!(
     birth_date: Time.now.to_date.to_formatted_s,
     course: 'Bachelor of Science in Criminology',
     year_graduated: Time.now.to_date.to_formatted_s,
-    employment_status: "Unemployed"
+    employment_status: "Unemployed",
+    reason_for_unemployment: "I haven't found a company that matches my salary expections in the Province of Negros Occidental."
 )
 
 AlumnusRecord.create!(
