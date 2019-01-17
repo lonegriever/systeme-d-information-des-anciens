@@ -1,6 +1,6 @@
 function administrators() {
     const context = $('#stats-chart-canvas');
-    if (context) {
+    if (context.length) {
          const data = {
             labels: ['Red', 'Blue', 'Green']
         }
