@@ -1,9 +1,10 @@
-<tr>
+<tr class="table-data-row">
     <td><%= alumnus_record.full_name %></td>
     <td><%= alumnus_record.email %></td>
     <td><%= alumnus_record.gender.capitalize %></td>
     <td><%= alumnus_record.birth_date.to_formatted_s(:long) %></td>
-    <td><%= alumnus_record.course %></td>
+    <td><%= alumnus_record.course.titleize %></td>
     <td><%= alumnus_record.year_graduated %></td>
     <td><%= alumnus_record.employment_status.capitalize %></td>
+    <%= hidden_field_tag :alumnus_record_id, alumnus_record.id %>
 </tr>

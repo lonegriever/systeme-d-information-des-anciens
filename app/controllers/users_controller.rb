@@ -9,7 +9,6 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        binding.pry
         if @user.save
             log_user_in(@user)
             redirect_to events_path, notice: "Registration Successful"

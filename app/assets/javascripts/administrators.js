@@ -10,5 +10,16 @@ function administrators() {
             // options: options
         })
     }
-   
+   attachEventToTableRows()
+}
+
+function attachEventToTableRows() {
+    let url = '/admin/alumnus-record/'
+    $('.table-data-row').click(function() {
+        const form = document.createElement('form');
+        form.setAttribute('method', 'get')
+        form.setAttribute('action', url + $(this).children('input').val());
+        $(document.body).append(form);
+        form.submit();
+    })
 }

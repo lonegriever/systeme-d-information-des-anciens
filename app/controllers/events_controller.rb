@@ -1,12 +1,14 @@
 class EventsController < ApplicationController
-    
+    include SessionsHelper
+    include Authenticatable
+    before_action :check_if_user_is_logged_in
+    before_action :check_if_user_is_an_admin, only: [:create, :new]
     def index
         @events = Event.all
     end
 
     def create
         @event = Event.new(event_params)
-
         if @event.save
             flash[:notice] = 'Successfully created the event.'
             redirect_to events_path

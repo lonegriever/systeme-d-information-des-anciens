@@ -1,15 +1,50 @@
 <div class="alumni-list">
     <%= render partial: 'common/navigation' %>
-    <table>
-        <tr class="headers-row">
-            <th>Full Name</th>
-            <th>Email</th>
-            <th>Gender</th>
-            <th>Birth Date</th>
-            <th>Course</th>
-            <th>Year Graduated</th>
-            <th>Status</th>
-        </tr>
-        <%= render partial: 'alumnus_record', collection: @alumnus_records %>
-    </table>
+    <div class="record-filter">
+        <div class="row">
+            <h5>Search for alumni <i class="fas fa-search"></i></h5>   
+        </div>
+        <%= form_tag alumni_list_path, method: :get do %>
+            <div class="row">
+                 <div class="column">
+                    <%= text_field_tag :first_name, '', placeholder: 'First Name' %>
+                    <%= text_field_tag :last_name, '', placeholder: 'Last Name' %>
+                    <%= number_field_tag :year_graduated, '', placeholder: 'Year graduated' %>
+                    <div class="radio-button-group">
+                        <div class="radio-button-label">
+                            <%= radio_button_tag :gender, 'male', checked: true %>
+                            <%= label_tag :gender_male, 'Male' %>
+                        </div>
+                        <div class="radio-button-label">
+                            <%= radio_button_tag :gender, 'female' %>
+                            <%= label_tag :gender_female, 'Female' %>
+                        </div>
+                    </div>
+                    <%= select_tag :course, options_for_select(courses) %>
+                    <%= button_tag '<i class="fas fa-filter"></i> Search'.html_safe %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div class="table-container">
+        <table>
+            <tr class="headers-row">
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Birth Date</th>
+                <th>Course</th>
+                <th>Year Graduated</th>
+                <th>Status</th>
+            </tr>
+            <%= render partial: 'alumnus_record', collection: @alumnus_records %>
+        </table>
+        <% unless @alumnus_records.present? %>
+            <h4 class="no-record-found-notice">No record found</h4>
+        <% end %>
+    </div>
+    <div class="pagination-links">
+        <%= paginate @alumnus_records %>
+    </div>
+    
 </div>

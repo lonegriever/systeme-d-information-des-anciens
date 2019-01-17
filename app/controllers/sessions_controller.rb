@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
     include SessionsHelper
+    before_action :check_user_cookies, only: [:new]
 
     def new
     end
@@ -20,13 +21,16 @@ class SessionsController < ApplicationController
         redirect_to login_path, notice: 'Logged out!'
     end
 
-    def test
-    end
-
     private
 
     def session_params
         params.permit(:username, :password)
+    end
+
+    def check_user_cookies
+        if current_user.present?
+            redirect_to events_path
+        end
     end
 
     def redirect_user
