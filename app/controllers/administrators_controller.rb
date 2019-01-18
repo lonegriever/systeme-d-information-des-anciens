@@ -3,7 +3,7 @@ class AdministratorsController < ApplicationController
     include Authenticatable
     before_action :check_if_user_is_logged_in
     before_action :check_if_user_is_an_admin
-
+    QUERY_ARRAY = [:first_name, :last_name, :gender, :course, :year_graduated]
     def alumni_list
         set_session
         recs = build_query
@@ -40,6 +40,9 @@ class AdministratorsController < ApplicationController
     end
 
     def build_query
+        QUERY_ARRAY.each do |element|
+            if session[element].nil? then session[element] = '' end
+        end
         query_result =  AlumnusRecord.where("first_name LIKE ?", '%' + session[:first_name] + '%')
         .where("last_name LIKE ?", '%' + session[:last_name] + '%')
         .where(gender: session[:gender])
