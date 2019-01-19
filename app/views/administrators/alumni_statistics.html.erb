@@ -1,3 +1,20 @@
 <div class="alumni-statistics">
-    <canvas id="stats-chart-canvas"></canvas>
+    <%= render 'common/navigation' %>
+    <div class="statistics">
+        <div class="employment-status-options-container">
+            <h5>Select course</h5>
+            <%= select_tag :course, options_for_select(courses) %>
+            <h5 class="years-label">Specify years here</h5>
+            <div class="years-number-fields-group">
+                <input type="number" class="year-field">
+                <input type="number" class="year-field">
+                <input type="number" class="year-field">
+                <input type="number" class="year-field">
+                <input type="number" class="year-field">
+            </div>
+        </div>
+        <div class="canvas-container">
+            <canvas id="stats-chart-canvas"></canvas>    
+        </div>
+    </div>
 </div>

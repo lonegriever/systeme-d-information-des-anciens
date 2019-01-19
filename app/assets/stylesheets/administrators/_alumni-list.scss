@@ -71,7 +71,7 @@
     }
 
     .table-container {
-        height: 430px;
+        height: 410px;
         h4.no-record-found-notice {
             height: 30px;
             text-align: center;
@@ -109,7 +109,7 @@
         tr.headers-row th, td {
             text-align: center;
             width: 300px;
-            padding: 15px 5px;
+            padding: 10px 5px;
             
             &:first-of-type,
             &:nth-of-type(2),

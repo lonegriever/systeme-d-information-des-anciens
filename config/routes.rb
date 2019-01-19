@@ -13,6 +13,12 @@ Rails.application.routes.draw do
         post    '/create',      to: 'users#create',    as: 'create_user'
     end
 
+    namespace :api do
+        scope '/admin' do
+            get '/get-alumni-statistics', to: 'charts_data#get_alumni_statistics'
+        end
+    end
+
     root to: 'sessions#new'
     resources :sessions
     

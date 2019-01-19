@@ -1,7 +1,68 @@
-.alumni-statistics {
-    canvas {
-        height: 320px;
-        width: 400px;
-        border: 1px solid black;
+.statistics {
+    display: flex;
+    justify-content: center;
+    .canvas-container,
+    .employment-status-options-container {
+        width: 305px;
+        margin: 10px;
+    }
+
+    .employment-status-options-container {
+        display: flex;
+        flex-direction: column;
+        height: 350px;
+        border-radius: 4px;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+        padding: 10px 0;
+        h5 {
+            flex: 0 1 20px;
+            line-height: 20px;
+            vertical-align: middle;
+            margin-left: 8px;
+            font-weight:  300;
+            font-size: 14px;
+            position: relative;
+            color: #455a64;
+        }
+        h5.years-label::before  {
+            content: '';
+            transform: translateX(-8px);
+            left: 0;
+            display: block;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.35);
+            height: 1px;
+            width: 103%;
+            margin: 10px 0;
+        }
+        select {
+            cursor: pointer;
+            flex: 0 1 40px;
+            margin: 0 5px;
+            padding:  6px 0;
+            background-color: #e1f5fe;
+            border-radius: 3px;
+        }
+        div.years-number-fields-group {
+            padding: 5px;
+            input[type=number] {
+                width: 100%;
+                border-radius: 4px;
+                margin: 6px 0;
+                padding: 5px;
+                outline: none;
+                border: 1px solid rgba(0, 0, 0, 0.25);
+                font-size: 15px;
+                color:  #263238;
+            }
+        }
+    }
+
+
+    .canvas-container {
+        box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.25);
+        padding: 20px;
+        height: 400px;
+        width: 700px;
     }
 }

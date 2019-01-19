@@ -67,12 +67,12 @@ end
     first_name = Faker::Name.female_first_name
     random = Faker::Number.between(0, 1)
     employment_status = random == 0 ? "Unemployed" : "Employed"
-    AlumnusRecord.create!(
+    rec = AlumnusRecord.create!(
         first_name: first_name,
         last_name: Faker::Name.last_name,
         email: Faker::Internet.email(first_name),
         gender: "Female",
-        birth_date: Faker::Date.between(Time.now.to_date - 10.years, Time.now.to_date - 20.years),
+        birth_date: Faker::Date.between(Time.now.to_date - 20.years, Time.now.to_date - 30.years),
         course: 'Bachelor of Science in Information Technology',
         year_graduated: Faker::Number.between(2014, 2019),
         employment_status: employment_status,
