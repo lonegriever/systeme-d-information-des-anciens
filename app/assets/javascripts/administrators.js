@@ -46,8 +46,18 @@ function initializeYearFields() {
 }
 
 function initializeDataSet() {
-    years = $('.year-field').map(function() {
+    const years = $('.year-field').map(function() {
         return $(this).val();
+    }).get();
+    const selectedCourse = $('#selected-course-for-statistics').val();
+    const url = '/api/admin/get-alumni-statistics';
+    $.ajax({
+        url: url,
+        data: {
+            years: years,
+            course: selectedCourse
+        }
+    }).done(function(response) {
+        console.log(response);
     })
-    console.log(years.get());
 }
