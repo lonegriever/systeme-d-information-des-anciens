@@ -32,8 +32,6 @@ function administrators() {
             options: {
                 hover: {
                     onHover: function(event) {
-                        // event.target.style.cursor = 'pointer'
-                        // console.log(event);
                         const point = this.getElementAtEvent(event);
                         if (point.length) {
                             event.target.style.cursor = 'pointer';
@@ -53,6 +51,7 @@ function administrators() {
             }
         });
         updateChart(lineChart);
+        attatchEventToLineChartCourseSelector(lineChart);
     }
    attachEventToTableRows()
 }
@@ -88,6 +87,7 @@ function updateChart(lineChart) {
             course: selectedCourse
         }
     }).done(function(response) {
+        removeAllDataAndLabelsFromChart(lineChart);
         response['data'].map(el => lineChart.data.labels.push(Object.keys(el)[0]));
         lineChart.data.datasets.forEach((dataset) => {
             label = dataset.label == 'Employed' ? 'employed' : 'unemployed';
@@ -99,18 +99,16 @@ function updateChart(lineChart) {
     })
 }
 
-        //  const data = {
-        //     datasets: [
-        //         {   
-        //             label: 'Employed',
-        //             borderColor: '#0d47a1',
-        //             backgroundColor: 'transparent',`
-        //             borderWidth: '3px',
-        //             data: [25, 50, 60, 100, 65]
-        //         },
-        //         {
-        //             label: 'Unemployed',
-        //             data: [10, 20, 40, 60, 75]
-        //         }
-        //     ]
-        // }
+function removeAllDataAndLabelsFromChart(lineChart) {
+    lineChart.data.labels = [];
+    lineChart.data.datasets.forEach((dataset) => {
+        dataset.data = []
+    });
+    lineChart.update();
+}
+
+function attatchEventToLineChartCourseSelector(lineChart) {
+    $('#selected-course-for-statistics').change(function() {
+        updateChart(lineChart);
+    });
+}
