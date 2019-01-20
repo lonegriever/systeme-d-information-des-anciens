@@ -25,6 +25,7 @@ class Api::ChartsDataController < ApplicationController
         records_for_course = AlumnusRecord.where(course: params[:course], year_graduated: year)
         total =  records_for_course.count
         count = records_for_course.where(employment_status: employment_status).count
-        "#{count.to_f / total * 100}%"
+        # "#{count.to_f / total * 100}%"
+        (count.to_f / total * 100).round(2);
     end
 end

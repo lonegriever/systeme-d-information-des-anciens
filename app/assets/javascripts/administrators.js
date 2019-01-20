@@ -2,8 +2,55 @@ function administrators() {
     const context = $('#stats-chart-canvas');
     if (context.length) {
         initializeYearFields();
+         const data = {
+            datasets: [
+                {   
+                    label: 'Employed',
+                    backgroundColor: '#03a9f4',
+                    borderColor: '#03a9f4',
+                    borderWidth: '2px',
+                    fill: false,
+                    pointRadius: 3,
+                    pointHitRadius: 50,
+                    pointHoverBackgroundColor: '#0288d1'
+                },
+                {
+                    label: 'Unemployed',
+                    backgroundColor: '#ef9a9a',
+                    borderColor: '#ef9a9a',
+                    borderWidth: '2px',
+                    fill: false,
+                    pointRadius: 3,
+                    pointHitRadius: 50,
+                    pointHoverBackgroundColor: '#e53935'
+                }
+            ]
+        }
         const lineChart = new Chart(context, {
-            type: 'line'
+            type: 'line',
+            data: data,
+            options: {
+                hover: {
+                    onHover: function(event) {
+                        // event.target.style.cursor = 'pointer'
+                        // console.log(event);
+                        const point = this.getElementAtEvent(event);
+                        if (point.length) {
+                            event.target.style.cursor = 'pointer';
+                        } else {
+                            event.target.style.cursor = 'default';
+                        }
+                    }
+                },
+                tooltips: {    
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            const label = data.datasets[tooltipItem.datasetIndex].label || '';
+                            return `${label}: ${tooltipItem.yLabel}%`;
+                        }
+                    }
+                } 
+            }
         });
         updateChart(lineChart);
     }
@@ -42,17 +89,22 @@ function updateChart(lineChart) {
         }
     }).done(function(response) {
         response['data'].map(el => lineChart.data.labels.push(Object.keys(el)[0]));
+        lineChart.data.datasets.forEach((dataset) => {
+            label = dataset.label == 'Employed' ? 'employed' : 'unemployed';
+            response['data'].forEach((yearData) => {        
+                dataset.data.push(Object.values(yearData)[0][label]);
+            })
+        })
         lineChart.update();
     })
 }
 
         //  const data = {
-        //     labels: [5, 4, 3, 2, 1].map(el => currentYear - el),
         //     datasets: [
         //         {   
         //             label: 'Employed',
         //             borderColor: '#0d47a1',
-        //             backgroundColor: 'transparent',
+        //             backgroundColor: 'transparent',`
         //             borderWidth: '3px',
         //             data: [25, 50, 60, 100, 65]
         //         },
