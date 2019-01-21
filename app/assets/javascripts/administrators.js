@@ -111,4 +111,7 @@ function attatchEventToLineChartCourseSelector(lineChart) {
     $('#selected-course-for-statistics').change(function() {
         updateChart(lineChart);
     });
+    $('#refresh-chart-button').click(function() {
+        updateChart(lineChart);
+    })
 }

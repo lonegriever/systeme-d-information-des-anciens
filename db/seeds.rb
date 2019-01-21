@@ -37,7 +37,7 @@ AlumnusRecord.create!(
 
 # Create seed data for Bachelor of Science in Information Technology here
 
-75.times do
+2000.times do
     first_name = Faker::Name.male_first_name
     random = Faker::Number.between(0, 1)
     employment_status = random == 0 ? "Unemployed" : "Employed"
@@ -63,7 +63,7 @@ AlumnusRecord.create!(
     end
 end
 
-25.times do
+700.times do
     first_name = Faker::Name.female_first_name
     random = Faker::Number.between(0, 1)
     employment_status = random == 0 ? "Unemployed" : "Employed"
@@ -92,7 +92,7 @@ end
 
 # Create seed data for Bachelor of Science in Hospitality Management
 
-75.times do
+1000.times do
     first_name = Faker::Name.male_first_name
     random = Faker::Number.between(0, 1)
     employment_status = random == 0 ? "Unemployed" : "Employed"
@@ -118,7 +118,7 @@ end
     end
 end
 
-25.times do
+500.times do
     first_name = Faker::Name.female_first_name
     random = Faker::Number.between(0, 1)
     employment_status = random == 0 ? "Unemployed" : "Employed"

@@ -6,15 +6,52 @@
             <%= select_tag :course, options_for_select(courses), id: 'selected-course-for-statistics' %>
             <h5 class="years-label">Specify years here</h5>
             <div class="years-number-fields-group">
-                <input type="number" class="year-field">
-                <input type="number" class="year-field">
-                <input type="number" class="year-field">
-                <input type="number" class="year-field">
-                <input type="number" class="year-field">
+                <input type="number" class="year-field" min="0" step="1">
+                <input type="number" class="year-field" min="0" step="1">
+                <input type="number" class="year-field" min="0" step="1">
+                <input type="number" class="year-field" min="0" step="1">
+                <input type="number" class="year-field" min="0" step="1">
+            </div>
+            <div class="refresh-button-container">
+                <button type="button" id="refresh-chart-button"><i class="fas fa-redo-alt"></i>Refresh</button>
             </div>
         </div>
         <div class="canvas-container">
             <canvas id="stats-chart-canvas"></canvas>    
+        </div>
+    </div>
+    <div class="alumni-statistics-summary">
+        <div class="headers">
+            <div class="header-item img-container"><img src="/assets/summary-icon" alt="summary-icon"></div>
+            <div class="header-item">2014</div>
+            <div class="header-item">2015</div>
+            <div class="header-item">2016</div>
+            <div class="header-item">2017</div>
+            <div class="header-item">2018</div>
+        </div>
+        <div class="employed-count">
+            <div class="employed-count-header">Employed<i class="far fa-check-circle"></i></div>
+            <div class="employed-count-data">49</div>
+            <div class="employed-count-data">312</div>
+            <div class="employed-count-data">113</div>
+            <div class="employed-count-data">441</div>
+            <div class="employed-count-data">553</div>
+        </div>
+        <div class="unemployed-count">
+            <div class="unemployed-count-header">Unemployed<i class="far fa-times-circle"></i></div>
+            <div class="unemployed-count-data">21</div>
+            <div class="unemployed-count-data">41</div>
+            <div class="unemployed-count-data">232</div>
+            <div class="unemployed-count-data">12</div>
+            <div class="unemployed-count-data">32</div>
+        </div>
+        <div class="total-count">
+            <div class="total-count-header">Total</div>
+            <div class="total-count-data">213</div>
+            <div class="total-count-data">131</div>
+            <div class="total-count-data">251</div>
+            <div class="total-count-data">212</div>
+            <div class="total-count-data">131</div>
         </div>
     </div>
 </div>

@@ -1,6 +1,9 @@
 .statistics {
     display: flex;
     justify-content: center;
+
+    * { font-family: lato, arial, verdana; }
+
     .canvas-container,
     .employment-status-options-container {
         width: 305px;
@@ -10,7 +13,7 @@
     .employment-status-options-container {
         display: flex;
         flex-direction: column;
-        height: 350px;
+        height: 400px;
         border-radius: 4px;
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
         padding: 10px 0;
@@ -56,12 +59,112 @@
                 color:  #263238;
             }
         }
+        .refresh-button-container {
+            text-align: center;
+            #refresh-chart-button {
+                background-color: #1565C0;
+                color: #f4f4f4;
+                padding: 10px 15px;
+                font-size: 16px;
+                border-radius: 4px;
+                border: transparent;
+                transition: background-color 0.2s ease;
+                cursor: pointer;
+                i {
+                    color: #f4f4f4;
+                    font-size: 14px;
+                    margin-right: 5px;
+                }
+                &:hover {
+                    background-color: #0D47A1;
+                }
+            }
+        }
     }
-
+    
     .canvas-container {
         box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.25);
         padding: 20px;
         height: 400px;
         width: 700px;
+    }
+}
+
+.alumni-statistics-summary {
+    margin: 15px auto;
+    width: 1030px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    * { 
+        font-family: lato, arial, verdana;
+        font-size: 14px;
+    }
+    .headers, .employed-count, .unemployed-count, .total-count {
+        display: flex;
+        align-items: center;
+        &:first-of-type img {
+            width: 50px;
+            height: auto;
+            margin: 10px;
+        }
+
+        div.header-item {
+            height: 68px;
+            line-height: 68px;
+            vertical-align: middle;
+            padding: 0 !important;
+        }
+
+        .img-container {
+            background-image: linear-gradient(to right, #ECEFF1,#CFD8DC);
+        }
+
+        div.header-item,
+        div.employed-count-header,
+        div.unemployed-count-header,
+        div.total-count-header,
+        .employed-count-data, .unemployed-count-data, .total-count-data {
+            flex: 1 1 20%;
+            text-align: center;
+            padding: 10px 5px;
+            border-bottom: 1px solid #CFD8DC;
+            border-right: 1px solid #CFD8DC;
+            position: relative;
+            i {
+                position: absolute;
+                right: 10px;
+                font-size: 20px;
+            }
+        }
+
+        div.header-item {
+            background-color: #BBDEFB;
+            border-right: none;
+        }
+
+        .employed-count-header {
+            background-color: #03A9F4;
+            // color: #546E7A;
+            color: #f5f5f5;
+        }
+        .unemployed-count-header {
+            background-color: #EF5350;
+            color: #f5f5f5;
+        }
+    }
+    .employed-count {
+        display: flex;
+        div.employed-count-header, .employed-count-data {
+            flex: 1 1 20%;
+            text-align: center;
+        }
+    }
+
+    .total-count-header {
+        background-color: #81D4FA;
+        font-weight: 400;
+        font-size: 15px;
     }
 }
