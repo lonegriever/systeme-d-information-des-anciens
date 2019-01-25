@@ -53,7 +53,8 @@ function administrators() {
         updateChart(lineChart);
         attatchEventToLineChartCourseSelector(lineChart);
     }
-   attachEventToTableRows()
+    attachEventToTableRows();
+    initializeBarChartAdmin();
 }
 
 function attachEventToTableRows() {
@@ -88,6 +89,7 @@ function updateChart(lineChart) {
         }
     }).done(function(response) {
         removeAllDataAndLabelsFromChart(lineChart);
+        updateAlumniStatisticsSummary(response);
         response['data'].map(el => lineChart.data.labels.push(Object.keys(el)[0]));
         lineChart.data.datasets.forEach((dataset) => {
             label = dataset.label == 'Employed' ? 'employed' : 'unemployed';
@@ -113,5 +115,39 @@ function attatchEventToLineChartCourseSelector(lineChart) {
     });
     $('#refresh-chart-button').click(function() {
         updateChart(lineChart);
+    })
+}
+
+function updateAlumniStatisticsSummary(response) {
+    $('.header-item').each(function(index) {
+        if (Object.keys(response['data'][index])[0].length > 0) {
+            $(this).text(Object.keys(response['data'][index])[0]);
+        } else {
+             $(this).text('Undefined');
+        }
+    });
+
+    $('.employed-count-data').each(function(index) {
+        if (Object.keys(response['data'][index])[0].length > 0) {
+            $(this).text(Object.values(response['data'][index])[0]['employed_count']);
+        } else {
+             $(this).text(0);
+        }
+    });
+
+    $('.unemployed-count-data').each(function(index) {
+        if (Object.keys(response['data'][index])[0].length > 0) {
+            $(this).text(Object.values(response['data'][index])[0]['unemployed_count']);
+        } else {
+             $(this).text(0);
+        }
+    })
+
+    $('.total-count-data').each(function(index) {
+        if (Object.keys(response['data'][index])[0].length > 0) {
+            $(this).text(Object.values(response['data'][index])[0]['total_count']);
+        } else {
+            $(this).text(0);
+        }
     })
 }

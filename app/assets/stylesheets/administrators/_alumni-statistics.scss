@@ -1,16 +1,29 @@
-.statistics {
+.bar-chart-section-header {
+    margin: 15px 0;
+    h4.header {
+        text-align: center;
+        font-size: 26px;
+        color: #455A64;
+        font-family: lato, verdana, arial;
+    }
+}
+
+.statistics, .bar-chart {
     display: flex;
     justify-content: center;
 
     * { font-family: lato, arial, verdana; }
 
     .canvas-container,
-    .employment-status-options-container {
+    .employment-status-options-container,
+    .year-and-course-selection,
+    .bar-chart-canvas-container {
         width: 305px;
         margin: 10px;
     }
 
-    .employment-status-options-container {
+    .employment-status-options-container,
+    .year-and-course-selection {
         display: flex;
         flex-direction: column;
         height: 400px;
@@ -26,6 +39,16 @@
             font-size: 14px;
             position: relative;
             color: #455a64;
+        }
+        input[type=number].bar-chart-year-selector {
+            width: 95%;
+            border-radius: 4px;
+            margin: 6px auto;
+            padding: 5px;
+            outline: none;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            font-size: 15px;
+            color:  #263238;
         }
         h5.years-label::before  {
             content: '';
@@ -59,9 +82,9 @@
                 color:  #263238;
             }
         }
-        .refresh-button-container {
+        .refresh-button-container, .refresh-bar-chart-button-container {
             text-align: center;
-            #refresh-chart-button {
+            #refresh-chart-button, #refresh-bar-chart-button {
                 background-color: #1565C0;
                 color: #f4f4f4;
                 padding: 10px 15px;
@@ -82,7 +105,7 @@
         }
     }
     
-    .canvas-container {
+    .canvas-container, .bar-chart-canvas-container {
         box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.25);
         padding: 20px;
         height: 400px;
@@ -110,11 +133,13 @@
             margin: 10px;
         }
 
-        div.header-item {
+        div.header-item, div.img-container {
             height: 68px;
             line-height: 68px;
             vertical-align: middle;
             padding: 0 !important;
+            flex: 1 1 20%;
+            text-align: center;
         }
 
         .img-container {
@@ -140,13 +165,13 @@
         }
 
         div.header-item {
-            background-color: #BBDEFB;
+            background-color: #CFD8DC;
             border-right: none;
+            color: #37474F;
         }
 
         .employed-count-header {
             background-color: #03A9F4;
-            // color: #546E7A;
             color: #f5f5f5;
         }
         .unemployed-count-header {
@@ -166,5 +191,32 @@
         background-color: #81D4FA;
         font-weight: 400;
         font-size: 15px;
+    }
+}
+
+.bar-chart {
+    .year-and-course-selection {
+        .bar-chart-course-selection-group {
+            display: flex;
+            flex-direction: column;
+            padding: 0 2px;
+            select {
+                cursor: pointer;
+                flex: 0 1 40px;
+                margin: 6px 5px;
+                padding:  6px 0;
+                background-color: #eeeeee;
+                border-radius: 3px;
+                padding: 10px;
+                background-color: #ECEFF1;
+                color: #546E7A;
+                border: 1px solid #CFD8DC;
+            }
+        }
+        .refresh-bar-chart-button-container {
+            #refresh-bar-chart-button {
+                background-color: #0D47A1;
+            }
+        }
     }
 }
