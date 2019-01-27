@@ -1,39 +1,39 @@
-User.create!(
-    username: 'griever',
-    password: 'password',
-    admin: true
-)
+# User.create!(
+#     username: 'griever',
+#     password: 'password',
+#     admin: true
+# )
 
-AlumnusRecord.create!(
-    first_name: "Edmond",
-    email: 'edmond@gmail.com',
-    last_name: "Dantes",
-    gender: "Male",
-    birth_date: Time.now.to_date.to_formatted_s,
-    course: 'Bachelor of Science in Information Technology',
-    year_graduated: Time.now.to_date.to_formatted_s,
-    employment_status: "Employed"
-)
+# AlumnusRecord.create!(
+#     first_name: "Edmond",
+#     email: 'edmond@gmail.com',
+#     last_name: "Dantes",
+#     gender: "Male",
+#     birth_date: Time.now.to_date.to_formatted_s,
+#     course: 'Bachelor of Science in Information Technology',
+#     year_graduated: Time.now.to_date.to_formatted_s,
+#     employment_status: "Employed"
+# )
 
-EmploymentRecord.create!(
-    company_name: 'Accenture',
-    position: 'Network Administrator',
-    date_started: Time.now.to_date - 1.year,
-    salary: 25000,
-    alumnus_record_id: 1
-)
+# EmploymentRecord.create!(
+#     company_name: 'Accenture',
+#     position: 'Network Administrator',
+#     date_started: Time.now.to_date - 1.year,
+#     salary: 25000,
+#     alumnus_record_id: 1
+# )
 
-AlumnusRecord.create!(
-    first_name: "Dana",
-    last_name: "Scully",
-    email: 'dana@gmail.com',
-    gender: "Female",
-    birth_date: Time.now.to_date.to_formatted_s,
-    course: 'Bachelor of Science in Criminology',
-    year_graduated: Time.now.to_date.to_formatted_s,
-    employment_status: "Unemployed",
-    reason_for_unemployment: "I haven't found a company that matches my salary expections in the Province of Negros Occidental."
-)
+# AlumnusRecord.create!(
+#     first_name: "Dana",
+#     last_name: "Scully",
+#     email: 'dana@gmail.com',
+#     gender: "Female",
+#     birth_date: Time.now.to_date.to_formatted_s,
+#     course: 'Bachelor of Science in Criminology',
+#     year_graduated: Time.now.to_date.to_formatted_s,
+#     employment_status: "Unemployed",
+#     reason_for_unemployment: "I haven't found a company that matches my salary expections in the Province of Negros Occidental."
+# )
 
 # Create seed data for Bachelor of Science in Information Technology here
 
