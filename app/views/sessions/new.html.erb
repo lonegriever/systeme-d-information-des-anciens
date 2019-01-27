@@ -2,7 +2,7 @@
     <div class="sign-in-window">
         <%= form_tag sessions_path do %>
             <div class="avatar-container">
-                <%= image_tag  "avatar.png" %>
+                <%= image_tag "avatar.png" %>
             </div>
             <div class="login-header">
                 <h4>Login Here</h4>
@@ -24,5 +24,9 @@
                 </div>
             </fieldset>
         <% end %>
+        <div class="sign-up-link-container">
+            <%= link_to 'Sign Up', new_users_path %>
+        </div>
     </div>
+    
 </div>
