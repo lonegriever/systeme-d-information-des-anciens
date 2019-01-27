@@ -63,6 +63,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# seeding the database with test data
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 # handling file uploads
 gem 'carrierwave', '~> 1.0'
 # javascript library
