@@ -38,6 +38,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
     gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
     gem 'pry-byebug'
+    gem 'dotenv-rails'
 end
 
 group :development do
@@ -72,3 +73,5 @@ gem 'kaminari'
 gem 'chart-js-rails'
 # datepicker
 gem 'jquery-ui-rails'
+# cloud basic file storage
+gem 'cloudinary'

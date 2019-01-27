@@ -32,3 +32,6 @@
 
 # ignore development uploads from carrierwave
 /public/uploads
+
+# ignore .env file
+.env

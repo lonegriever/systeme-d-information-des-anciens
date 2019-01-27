@@ -9,6 +9,15 @@ class Api::ChartsDataController < ApplicationController
         }, status: :ok
     end
 
+    def get_employed_count
+        initialize_employed_records_for_year
+        response = build_employed_count_result
+        render json: {
+            message: 'success',
+            data: response
+        }, status: :ok
+    end
+
     private
 
     def build_result
@@ -20,7 +29,6 @@ class Api::ChartsDataController < ApplicationController
                     employed_count: get_records_count('employed', curr),
                     unemployed_count: get_records_count('unemployed', curr),
                     total_count: @records_for_course.where(year_graduated: curr).count
-
                 }
             }
         end
@@ -39,5 +47,21 @@ class Api::ChartsDataController < ApplicationController
 
     def initialize_records_for_course
         @records_for_course = AlumnusRecord.where(course: params[:course])
+    end
+
+    def initialize_employed_records_for_year
+        @employed_count_for_year = AlumnusRecord.where(year_graduated: params[:selectedYear])
+    end
+
+    def build_employed_count_result
+        result = {}
+        params[:selectedCourses].each do |course|
+            result.store(course, get_employed_count_for_course(course))
+        end
+        result
+    end
+
+    def get_employed_count_for_course course
+        @employed_count_for_year.where(course: course).count
     end
 end

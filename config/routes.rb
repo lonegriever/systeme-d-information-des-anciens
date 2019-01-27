@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     namespace :api do
         scope '/admin' do
             get '/get-alumni-statistics', to: 'charts_data#get_alumni_statistics'
+            get '/get-employed-count',    to: 'charts_data#get_employed_count'
         end
     end
 
