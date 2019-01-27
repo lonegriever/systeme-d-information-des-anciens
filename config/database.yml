@@ -22,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: production_alumni_information_system
+  username: alumni_information_system
+  password: <%= ENV['ALUMNI_INFORMATION_SYSTEM_PASSWORD'] %>
