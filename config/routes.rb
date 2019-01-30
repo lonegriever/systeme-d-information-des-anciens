@@ -24,4 +24,6 @@ Rails.application.routes.draw do
     resources :sessions
     
     resources :events, only: [:create, :new, :index]
+
+    mount ActionCable.server, at: '/cable'
 end
