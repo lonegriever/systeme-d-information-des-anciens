@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         user = User.find_by(username: session_params[:username])
         if user && user.authenticate(session_params[:password])
             log_user_in(user)
-            create_and_broadcast_notification(user)
+            create_and_broadcast_notification(user) unless user.is_an_admin
             redirect_user
         else
             flash.now.alert = 'Username or Passsord is incorrect'
@@ -43,10 +43,19 @@ class SessionsController < ApplicationController
     end
 
     def create_and_broadcast_notification(user)
-        ActionCable.server.broadcast 'admin_notifications_channel',
-        {
-            message: "A user has logged in.",
-            username: user.username
-        }
+        Services::Notification::Broadcast.invoke(
+            'admin_notifications_channel',
+            {
+                message: 'A user has logged in.',
+                username: user.username,
+                unread_notifications_count: Notification.unread_count
+            }
+        )
+
+        Services::Notification::Create.invoke(
+            'user-sign-in',
+            'a user has signed in.',
+            user.id
+        )
     end
 end

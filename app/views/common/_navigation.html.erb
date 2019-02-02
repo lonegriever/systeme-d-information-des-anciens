@@ -4,6 +4,12 @@
         <li><%= link_to 'Events', events_path %></li>
         <li><%= link_to 'Alumni List', alumni_list_path %></li>
         <li><%= link_to 'Statistics', alumni_statistics_path %></li>
+        <li>
+            <div class="notification-group">
+                <span id="unread-notifications-count">0</span>
+                <i class="fas fa-bell"></i>        
+            </div>
+        </li>
         <li><%= link_to 'Logout', logout_path, method: 'delete' %></li>
     </ul>
 </div>

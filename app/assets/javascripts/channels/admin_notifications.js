@@ -10,6 +10,11 @@ App.admin_notifications = App.cable.subscriptions.create("AdminNotificationsChan
 
     received: function(data) {
     // Called when there's incoming data on the websocket for this channel
-        console.log(data);
+        updateNotificationGroup(data);
     }
 });
+
+function updateNotificationGroup(data) {
+    console.log(data);
+    $('#unread-notifications-count').text(data['unread_notifications_count']);
+}
