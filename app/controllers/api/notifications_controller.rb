@@ -1,5 +1,6 @@
 class Api::NotificationsController < ApplicationController
     def retrieve_all
-        render json: {message: 'noice'}, status: :ok
+        result = Services::Notification::RetrieveAll.invoke(params[:offset])
+        render json: result, status: result[:status]
     end
 end
