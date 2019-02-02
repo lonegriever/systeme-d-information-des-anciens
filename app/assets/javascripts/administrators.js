@@ -55,6 +55,7 @@ function administrators() {
     }
     attachEventToTableRows();
     initializeBarChartAdmin();
+    initializeAdminNavigation();
 }
 
 function attachEventToTableRows() {

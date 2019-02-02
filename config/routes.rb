@@ -17,6 +17,7 @@ Rails.application.routes.draw do
         scope '/admin' do
             get '/get-alumni-statistics', to: 'charts_data#get_alumni_statistics'
             get '/get-employed-count',    to: 'charts_data#get_employed_count'
+            get '/get-notifications',     to: 'notifications#retrieve_all'
         end
     end
 
