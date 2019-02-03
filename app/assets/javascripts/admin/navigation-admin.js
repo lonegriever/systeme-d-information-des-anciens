@@ -18,7 +18,7 @@ function updateNotificationsList(offset = 0) {
         data['notifications'].forEach(notif => {
             notif_is_read = notif.is_read ? 'read-notif' : 'not-read-notif'
             let listItem = `<li class='${notif_is_read}'><span class="notification-details">${notif.notification_details}</span></li>`;
-            $('#notifications-list').append(listItem) 
+            $('#notifications-list').append(listItem);
         });
     })
 }

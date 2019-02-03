@@ -1,5 +1,6 @@
 module Services::Notification
     class Create
+        include ActionView::Helpers::DateHelper
         attr_reader :notification_type, :notification_details, :user_id
         def self.invoke(notification_type, notification_details, user_id)
             self.new(notification_type, notification_details, user_id).execute
@@ -12,11 +13,18 @@ module Services::Notification
         end
 
         def execute
-            Notification.create(
+            notification = 'Notification'.constantize
+            notif = notification.create(
                 notification_type: notification_type,
                 notification_details: notification_details,
                 user_id: user_id
             )
+            {
+                id: notif.id,
+                notification_details: "#{notif.notification_details} #{time_ago_in_words(notif.created_at)} ago",
+                is_read: notif.is_read,
+                user_id: notif.user_id
+            }
         end
     end
 end
