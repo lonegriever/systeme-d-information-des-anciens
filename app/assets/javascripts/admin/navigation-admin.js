@@ -1,5 +1,6 @@
 function initializeAdminNavigation() {
     updateNotificationsList();
+    attachEventListenerToNotifGroup();
 }
 
 function updateNotificationsList(offset = 0) {

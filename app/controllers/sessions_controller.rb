@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
     def create_and_broadcast_notification(user)
 
         new_notification = Services::Notification::Create.invoke(
-                "user-sign-in",
+            "user-sign-in",
             "#{user.username} signed in",
             user.id
         )
@@ -56,7 +56,8 @@ class SessionsController < ApplicationController
                 message: 'A user has logged in.',
                 username: user.username,
                 unread_notifications_count: Notification.unread_count,
-                new_notification: new_notification
+                new_notification: new_notification,
+                alumnus_record_id: new_notification[:alumnus_record_id]
             }
         )
     end
