@@ -15,6 +15,5 @@ App.admin_notifications = App.cable.subscriptions.create("AdminNotificationsChan
 });
 
 function updateNotificationGroup(data) {
-    console.log(data);
     $('#unread-notifications-count').text(data['unread_notifications_count']);
 }

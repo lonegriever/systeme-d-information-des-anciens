@@ -43,6 +43,13 @@ class SessionsController < ApplicationController
     end
 
     def create_and_broadcast_notification(user)
+
+        Services::Notification::Create.invoke(
+                "user-sign-in",
+            "#{user.username} signed in",
+            user.id
+        )
+        
         Services::Notification::Broadcast.invoke(
             'admin_notifications_channel',
             {
@@ -50,12 +57,6 @@ class SessionsController < ApplicationController
                 username: user.username,
                 unread_notifications_count: Notification.unread_count
             }
-        )
-
-        Services::Notification::Create.invoke(
-            'user-sign-in',
-            'a user has signed in.',
-            user.id
         )
     end
 end
