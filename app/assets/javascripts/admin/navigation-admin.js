@@ -20,21 +20,15 @@ function updateNotificationsList(offset = 0) {
             let userID = `<input type="hidden" value="${notif.alumnus_record_id}"></input>`
             let listItem = `<li class='${notif_is_read} notif-list-item'>${userID}<span class="notification-details">${notif.notification_details}</span></li>`;
             $('#notifications-list').append(listItem);
-            attachNotifListEventListener($('#notifications-list').children('li')[index]);
+            attachNotifListEventListener($('#notifications-list').children('li')[index], notif.id);
         });
     })
 }
 
-function attachNotifListEventListener(listItem) {
+function attachNotifListEventListener(listItem, notif_id) {
     $(listItem).click(function() {
-        // console.log($(this).text());
-        $('#notif-get-profile').
+        let url = '/admin/alumnus-record-notif/'
+        form = $('#notif-get-profile').attr('action', url + $(this).children('input').val() + `/${notif_id}`);
+        form.submit();
     })
 }
-
-
-// const form = document.createElement('form');
-//         form.setAttribute('method', 'get')
-//         form.setAttribute('action', url + $(this).children('input').val());
-//         $(document.body).append(form);
-//         form.submit();

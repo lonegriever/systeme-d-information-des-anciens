@@ -3,6 +3,7 @@ class AdministratorsController < ApplicationController
     include Authenticatable
     before_action :check_if_user_is_logged_in
     before_action :check_if_user_is_an_admin
+    before_action :update_notif_to_read, if: :notification_id_present
     QUERY_ARRAY = [:first_name, :last_name, :gender, :course, :year_graduated]
     def alumni_list
         set_session
@@ -51,5 +52,13 @@ class AdministratorsController < ApplicationController
             query_result = query_result.where(year_graduated: session[:year_graduated])
         end
         query_result
+    end
+
+    def update_notif_to_read
+        Notification.find_by(id: params[:notification_id]).update_attribute(:is_read, true);
+    end
+
+    def notification_id_present
+        params[:notification_id].present? ? true : false
     end
 end

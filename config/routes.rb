@@ -3,9 +3,10 @@ Rails.application.routes.draw do
     delete '/logout',   to: 'sessions#destroy', as: 'logout'
 
     scope '/admin' do
-        get '/alumni-statistics',   to: 'administrators#alumni_statistics'
-        get '/alumni-list',         to: 'administrators#alumni_list'
-        get '/alumnus-record/:id',  to: 'administrators#show_alumnus_record', as: 'show_alumnus_record'
+        get '/alumni-statistics',                    to: 'administrators#alumni_statistics'
+        get '/alumni-list',                          to: 'administrators#alumni_list'
+        get '/alumnus-record/:id',                   to: 'administrators#show_alumnus_record', as: 'show_alumnus_record'
+        get '/alumnus-record-notif/:id/:notification_id',  to: 'administrators#show_alumnus_record'
     end
 
     scope '/users' do
