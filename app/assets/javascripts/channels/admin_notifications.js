@@ -18,8 +18,6 @@ function updateNotificationGroup(data) {
     let notif_is_read = new_notification.is_read ? 'read-notif' : 'not-read-notif'
     let userID = `<input type="hidden" value="${new_notification.alumnus_record_id}"></input>`
     let listItemId = `notif-${new_notification.id}`
-    console.log(userID)
-    console.log(data);
     let listItem = `<li id="${listItemId}" class='${notif_is_read} notif-list-item'>${userID}<span class="notification-details">${new_notification.notification_details}</span></li>`;
     $('#notifications-list').prepend(listItem);
     attachNotifListEventListener(listItemId, new_notification.id);
@@ -30,8 +28,11 @@ function attachNotifListEventListener(listItemId, notif_id) {
     $('li').attr('id', listItemId).click(function() {
         alumnus_record_id = $(this).children('input').val().toString();
         let url = '/admin/alumnus-record-notif/' + alumnus_record_id + "/" + notif_id
-        form = $('#notif-get-profile').attr('action', url);
-        console.log($(form).attr('action'))
+        debugger
+        const form = document.createElement('form');
+        form.setAttribute('method', 'get');
+        form.setAttribute('action', url);
+        $(document.body).append(form);
         form.submit();
     })
 }
