@@ -77,3 +77,4 @@ gem 'chart-js-rails'
 gem 'jquery-ui-rails'
 # cloud basic file storage
 gem 'cloudinary'
+gem 'redis', '3.3.1'
