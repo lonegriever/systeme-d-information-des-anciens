@@ -1,7 +1,7 @@
 module Services::Notification
     class RetrieveAll
         include ActionView::Helpers::DateHelper
-        attr_reader :offset
+        attr_reader :offset, :all_users
 
         def self.invoke(offset = 0)
             self.new(offset).execute
@@ -9,11 +9,12 @@ module Services::Notification
 
         def initialize(offset)
             @offset = offset
+            @all_users = User.all.includes(:alumnus_record)
         end
 
         def execute
             notification = 'Notification'.constantize
-            notifs = notification.offset(offset).order('created_at DESC')
+            notifs = notification.offset(offset).order('created_at DESC').limit(10);
             notifs = format_notifications(notifs)
             {
                 message: 'success',
@@ -30,7 +31,9 @@ module Services::Notification
                 {
                     id: notif.id,
                     is_read: notif.is_read,
-                    notification_details: "#{notif.notification_details} #{time_ago_in_words(notif.created_at)} ago"
+                    notification_details: "#{notif.notification_details} #{time_ago_in_words(notif.created_at)} ago",
+                    user_id: notif.user.id,
+                    alumnus_record_id: all_users.find_by(id: notif.user.id).alumnus_record.id
                 }
             end
         end
