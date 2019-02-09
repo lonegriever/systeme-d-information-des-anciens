@@ -4,6 +4,24 @@ class AlumnusRecord < ApplicationRecord
     accepts_nested_attributes_for :employment_record
 
     before_create :down_case_attributes
+    
+    validates_presence_of [
+        :first_name,
+        :last_name,
+        :email,
+        :gender,
+        :birth_date,
+        :course,
+        :year_graduated,
+        :employment_status,
+        :reason_for_unemployment
+    ]
+
+    validates :first_name, length:  {minimum: 3, maximum: 16}
+    validates :last_name,  length:  {minimum: 3, maximum: 16}
+    validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+    validates :reason_for_unemployment, length: {maximum: 254}
+
     def full_name
         "#{self.first_name.capitalize} #{self.last_name.capitalize}"
     end
@@ -21,4 +39,5 @@ class AlumnusRecord < ApplicationRecord
             end
         end
     end
+
 end

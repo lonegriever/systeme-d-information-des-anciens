@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDISTOGO_URL") %>
+  url: <%= ENV['REDISTOGO_URL'] %>
   # channel_prefix: alumni-information-system_production
