@@ -12,6 +12,21 @@
         margin: auto;
         border-radius: 5px;
         position: relative;
+
+        ul.user-creation-errors {
+            width: 90%;
+            margin: 0 auto;
+            border: 1px solid #d32f2f;
+            height: 150px;
+            overflow-y: auto;
+            border-radius: 4px;
+            li.error-message {
+                text-align: center;
+                list-style: none;
+                color: #d32f2f;
+            }
+        }
+
         fieldset {
             margin: auto;
             width: 400px;
@@ -43,7 +58,6 @@
                 font-weight: 300;
                 opacity: 0.6;
                 font-size: 24px;
-                margin-bottom: 30px;
             }
 
             h5 {

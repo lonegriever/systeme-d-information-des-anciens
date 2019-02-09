@@ -9,7 +9,8 @@ function updateNotificationsList(offset = 0) {
     $.ajax({
         url: url,
         data: {
-            offset: offset
+            offset: offset,
+            notifications_for: 'admins'
         }
     }).done(function(data) {
         // console.log($('.notification-offset-count').val());
@@ -40,12 +41,3 @@ function attachEventListeners(listItem, notif_id) {
         form.submit();
     })
 }
-
-// let url = '/admin/alumnus-record/'
-//     $('.table-data-row').click(function() {
-//         const form = document.createElement('form');
-//         form.setAttribute('method', 'get')
-//         form.setAttribute('action', url + $(this).children('input').val());
-//         $(document.body).append(form);
-//         form.submit();
-//     })

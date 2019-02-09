@@ -21,6 +21,10 @@ Rails.application.routes.draw do
             get '/get-employed-count',    to: 'charts_data#get_employed_count'
             get '/get-notifications',     to: 'notifications#retrieve_all'
         end
+
+        scope '/user' do
+            get '/get-notifications',     to: 'notifications#retrieve_all'
+        end
     end
 
     root to: 'sessions#new'
