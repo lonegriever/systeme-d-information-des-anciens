@@ -15,7 +15,8 @@ module Services::Notification
         end
 
         def execute
-            return notifications_for_admin if notifications_for == 'admins'
+            return retrieve_notifications_for('admins') if notifications_for == 'admins'
+            return retrieve_notifications_for('alumni') if notifications_for == 'alumni'
         end
 
         private
@@ -32,13 +33,17 @@ module Services::Notification
             end
         end
 
-        def notifications_for_admin
-            notifs = notification_model.offset(offset).order('created_at DESC').limit(10);
-            notifs = format_notifications(notifs)
+        def retrieve_notifications_for(users_type)
+            if users_type == 'admins'
+                notifs = notification_model.notifications_for_admins
+            elsif users_type == 'alumni'
+                notifs = notification_model.notifications_for_users
+            end
+            notifs_array = format_notifications(notifs.offset(offset).order('created_at DESC').limit(10))
             {
                 message: 'success',
-                notifications: notifs,
-                unread_notifications_count: Notification.unread_count,
+                notifications: notifs_array,
+                unread_notifications_count: notifs.where(is_read: false).count,
                 status: 200
             }
         end

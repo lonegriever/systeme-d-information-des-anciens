@@ -1,5 +1,6 @@
 class Notification < ApplicationRecord
   belongs_to :user
 
-  scope :unread_count, -> { where(is_read: false).count }
+    scope :notifications_for_admins, -> { where.not(notification_type: 'event-creation') }
+    scope :notifications_for_users, -> { where(notification_type: 'event-creation')}
 end

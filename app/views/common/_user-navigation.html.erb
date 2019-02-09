@@ -5,6 +5,16 @@
             <span><%= current_user.username %></span>
         </li>
         <li><%= link_to 'Events', events_path %></li>
+        <li>
+            <div class="notification-group">
+                <input type="hidden" value="0" class="notification-offset-count">
+                <span id="unread-notifications-count">0</span>
+                <i class="fas fa-bell"></i>
+                <div class="notifications-list-container">
+                    <ul id="notifications-list"></ul>
+                </div>
+            </div>
+        </li>
         <li><%= link_to 'Logout', logout_path, method: 'delete' %></li>
     </ul>
 </div>

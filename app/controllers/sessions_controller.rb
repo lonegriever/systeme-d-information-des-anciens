@@ -43,7 +43,6 @@ class SessionsController < ApplicationController
     end
 
     def create_and_broadcast_notification(user)
-
         new_notification = Services::Notification::Create.invoke(
             "user-sign-in",
             "#{user.username} signed in",
