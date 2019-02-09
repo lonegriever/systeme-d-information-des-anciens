@@ -116,18 +116,44 @@
     }
 
     .user-navigation {
-        width: 30%;
+        width: 300px;
         li {
             text-transform: none;
             color: #f4f4f4;
             span {
                 color: #f4f4f4;
-                margin-left: 15px;
+            }
+            i {
+                font-size: 24px;
+                margin-right: 8px;
+                transform: translateY(5px);
             }
         }
         li.logged-in-as {
-            background-color: #0D47A1;
+            position: relative;
             padding: 0 10px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                width: 1.5px;
+                height: 50%;
+                margin: auto;
+                background-color: #1565c0;
+                left: 0;
+                top: 30%;
+            }
+
+            &:after {  
+                content: '';
+                position: absolute;
+                width: 1.5px;
+                height: 50%;
+                margin: auto;
+                background-color: #1565c0;
+                right: 0;
+                top: 30%;
+            }
         }
     }
 }

@@ -1,6 +1,9 @@
 <div class="navigation">
     <ul class="user-navigation">
-        <li class="logged-in-as">Logged in as: <span><%= current_user.username %></span></li>
+        <li class="logged-in-as">
+            <i class="fas fa-user-circle"></i> 
+            <span><%= current_user.username %></span>
+        </li>
         <li><%= link_to 'Events', events_path %></li>
         <li><%= link_to 'Logout', logout_path, method: 'delete' %></li>
     </ul>

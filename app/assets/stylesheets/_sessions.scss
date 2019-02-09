@@ -8,7 +8,6 @@
 
     .sign-in-window {
         width: 350px;
-        height: 65%;
         margin: auto;
         border-radius: 4px;
         box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.6);
@@ -86,7 +85,7 @@
         }
         .sign-up-link-container {
             width: 70%;
-            margin: auto;
+            margin: 30px auto;
             a {
                 text-decoration: none;
                 font-family: lato, arial, verdana;
