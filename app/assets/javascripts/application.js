@@ -22,4 +22,11 @@ $(document).on('turbolinks:load', function() {
     events();
     administrators();
     users();
+    $(this).keypress(
+        function(event) {
+            if (event.which == '13') {
+                event.preventDefault();
+            }
+        }
+    )
 })

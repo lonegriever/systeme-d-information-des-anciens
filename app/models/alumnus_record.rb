@@ -4,6 +4,7 @@ class AlumnusRecord < ApplicationRecord
     accepts_nested_attributes_for :employment_record
 
     before_create :down_case_attributes
+    after_create :create_notification_for_admin
     
     validates_presence_of [
         :first_name,
@@ -13,14 +14,14 @@ class AlumnusRecord < ApplicationRecord
         :birth_date,
         :course,
         :year_graduated,
-        :employment_status,
-        :reason_for_unemployment
+        :employment_status
     ]
 
     validates :first_name, length:  {minimum: 3, maximum: 16}
     validates :last_name,  length:  {minimum: 3, maximum: 16}
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
     validates :reason_for_unemployment, length: {maximum: 254}
+    validates :reason_for_unemployment, presence: true, if: :unemployed
 
     def full_name
         "#{self.first_name.capitalize} #{self.last_name.capitalize}"
@@ -38,6 +39,29 @@ class AlumnusRecord < ApplicationRecord
                 end
             end
         end
+    end
+
+    def create_notification_for_admin
+        new_notification = Services::Notification::Create.invoke(
+            "alumnus-record-creation",
+            "A user has created an account.",
+            self.user.id
+        )
+
+        Services::Notification::Broadcast.invoke(
+            'admin_notifications_channel',
+            {
+                message: 'An alumnus has created an account.',
+                username: self.user.username,
+                unread_notifications_count: Notification.unread_count,
+                new_notification: new_notification,
+                alumnus_record_id: new_notification[:alumnus_record_id]
+            }
+        )
+    end
+
+    def unemployed
+        self.employment_status == 'unemployed'
     end
 
 end

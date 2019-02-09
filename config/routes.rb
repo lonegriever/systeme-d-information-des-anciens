@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     scope '/users' do
         get     '/register',    to: 'users#new',       as: 'new_users'
         post    '/create',      to: 'users#create',    as: 'create_user'
+        get     '/create',      to: 'users#new'
     end
 
     namespace :api do

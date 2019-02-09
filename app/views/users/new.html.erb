@@ -2,6 +2,16 @@
     <%= form_for @user, url: create_user_path, class: 'user-form' do |f| %>
         <fieldset class="username-password">
             <h4>Create Account</h4>
+            <% if @user.errors.any? %>
+                <ul class="user-creation-errors">
+                    <% @user.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                </ul>
+            <% end %>
+            <ul class="user-creation-errors">
+                <li class="error-message">password can't be blank</li>
+            </ul>
             <%= f.text_field :username, placeholder: 'Username' %>
             <%= f.password_field :password, placeholder: 'Password' %>
             <%= f.password_field :password_confirmation, placeholder: 'Confirm Password' %>
