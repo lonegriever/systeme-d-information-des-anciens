@@ -1,17 +1,18 @@
 module Services::Notification
     class RetrieveAll
         include ActionView::Helpers::DateHelper
-        attr_reader :offset, :notifications_for, :all_users, :notification_model
+        attr_reader :offset, :notifications_for, :all_users, :notification_model, :current_user
 
-        def self.invoke(offset = 0, notifications_for = 'admins')
-            self.new(offset, notifications_for).execute
+        def self.invoke(offset = 0, notifications_for = 'admins', current_user)
+            self.new(offset, notifications_for, current_user).execute
         end
 
-        def initialize(offset, notifications_for)
+        def initialize(offset, notifications_for, current_user)
             @offset = offset
             @notifications_for = notifications_for
             @all_users = User.all.includes(:alumnus_record)
             @notification_model = 'Notification'.constantize
+            @current_user = current_user
         end
 
         def execute
@@ -44,6 +45,7 @@ module Services::Notification
                 message: 'success',
                 notifications: notifs_array,
                 unread_notifications_count: notifs.where(is_read: false).count,
+                user_is_an_admin: current_user.is_an_admin,
                 status: 200
             }
         end
