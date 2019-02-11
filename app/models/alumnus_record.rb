@@ -53,7 +53,7 @@ class AlumnusRecord < ApplicationRecord
             {
                 message: 'An alumnus has created an account.',
                 username: self.user.username,
-                unread_notifications_count: Notification.unread_count,
+                unread_notifications_count: Notification.notifications_for_admins.count,
                 new_notification: new_notification,
                 alumnus_record_id: new_notification[:alumnus_record_id]
             }

@@ -28,7 +28,6 @@ function attachNotifListEventListener(listItemId, notif_id) {
     $('li').attr('id', listItemId).click(function() {
         alumnus_record_id = $(this).children('input').val().toString();
         let url = '/admin/alumnus-record-notif/' + alumnus_record_id + "/" + notif_id
-        debugger
         const form = document.createElement('form');
         form.setAttribute('method', 'get');
         form.setAttribute('action', url);

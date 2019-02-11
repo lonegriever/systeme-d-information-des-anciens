@@ -14,7 +14,7 @@ module Services::Notification
 
         def execute
             notification = 'Notification'.constantize
-            notif = notification.create(
+            notif = notification.create!(
                 notification_type: notification_type,
                 notification_details: notification_details,
                 user_id: user_id
@@ -24,7 +24,7 @@ module Services::Notification
                 notification_details: "#{notif.notification_details} #{time_ago_in_words(notif.created_at)} ago",
                 is_read: notif.is_read,
                 user_id: notif.user_id,
-                alumnus_record_id: User.find_by(id: user_id).alumnus_record.id
+                alumnus_record_id: user_id.present? ? User.find_by(id: user_id).alumnus_record.id : nil
             }
         end
     end

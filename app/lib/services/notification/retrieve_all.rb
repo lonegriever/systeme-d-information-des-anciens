@@ -28,8 +28,8 @@ module Services::Notification
                     id: notif.id,
                     is_read: notif.is_read,
                     notification_details: "#{notif.notification_details} #{time_ago_in_words(notif.created_at)} ago",
-                    user_id: notif.user.id,
-                    alumnus_record_id: all_users.find_by(id: notif.user.id).alumnus_record.id
+                    user_id: notif.user_id.present? ? notif.user_id : nil,
+                    alumnus_record_id: notif.user_id.present? ? all_users.find_by(id: notif.user.id).alumnus_record.id : nil
                 }
             end
         end

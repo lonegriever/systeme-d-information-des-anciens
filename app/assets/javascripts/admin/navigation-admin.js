@@ -33,7 +33,7 @@ function attachEventListenerToNotifGroup() {
 
 function attachEventListeners(listItem, notif_id, user_is_an_admin) {
     $(listItem).click(function() {
-        let url = user_is_an_admin? '/admin/alumnus-record-notif/' + $(this).children('input').val() + `/${notif_id}` : `/events?notif_id=${notif_id}`;
+        let url = user_is_an_admin? '/admin/alumnus-record-notif/' + $(this).children('input').val() + `/${notif_id}` : `/events?notification_id=${notif_id}`;
         const form = document.createElement('form');
         form.setAttribute('method', 'get')
         form.setAttribute('action', url);

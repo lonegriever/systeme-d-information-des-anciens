@@ -1,5 +1,10 @@
 <div class="event-creation">
     <%= render partial: 'common/navigation' %>
+    <% if @event.errors.any? %>
+        <% @event.errors.full_messages do |message| %>
+                <h4><%= message %></h4>
+        <% end %>
+    <% end %>
     <div class="create-event-section">
         <div class="errors-section">
             <% if @event.errors.present? %>

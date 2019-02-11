@@ -1,6 +1,8 @@
 <div class="event">
     <figure>
-        <%= image_tag event.file.url %> 
+        <% if event.file.present? %>
+            <%= image_tag event.file.url %> 
+        <% end %>
     </figure>
     <p><%= event.caption %></p>
 </div>
