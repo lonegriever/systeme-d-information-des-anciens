@@ -4,6 +4,8 @@
     <% else %>
         <%= render partial: 'common/user-navigation' %>
     <% end %>
-    
+    <div class="events-header-image-container">
+        <%= image_tag 'upcoming-events.png', class: 'events-header-image' %>
+    </div>
     <%= render @events %>
 </div>
