@@ -1,0 +1,32 @@
+h4.mission-and-vision-header {
+    font-family: lato;
+    font-size: 48px;
+    text-transform: uppercase;
+    padding: 20px 15px;
+    color: #C62828;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+section.about-bg-section {
+    width: 100%;
+    height: 100vh;
+    background-image: image-url('bg-school-1.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+section.mission-and-vision {
+    padding: 25px;
+    h5.mission-header, h5.vision-header {
+        font-family: lato;
+        color: black;
+        font-size: 70px;
+        font-weight: 600;
+    }
+    
+    p.mission-content, p.vision-content { 
+        font-size: 24px;
+        font-family: lato;
+        line-height: 40px;
+    }
+}

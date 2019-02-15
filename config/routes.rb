@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+    
     get    '/login' ,   to: 'sessions#new',     as: 'login'
     delete '/logout',   to: 'sessions#destroy', as: 'logout'
+    get    '/about',    to: 'static_pages#about'
 
     scope '/admin' do
         get '/alumni-statistics',                    to: 'administrators#alumni_statistics'
