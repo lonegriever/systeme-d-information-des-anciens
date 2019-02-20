@@ -1,11 +1,13 @@
 <div class="event-creation">
     <%= render partial: 'common/navigation' %>
+    <h4 class="create-new-event-header">Create New Event</h4>
     <% if @event.errors.any? %>
         <% @event.errors.full_messages do |message| %>
                 <h4><%= message %></h4>
         <% end %>
     <% end %>
     <div class="create-event-section">
+        <%= image_tag 'create-new.png', class: 'create-new-image' %>
         <div class="errors-section">
             <% if @event.errors.present? %>
                 <% @event.errors.full_messages.each do |error| %>

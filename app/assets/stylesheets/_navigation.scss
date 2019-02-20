@@ -5,6 +5,13 @@
     box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
     display: flex;
     justify-content: flex-end;
+    position: relative;
+    .sti-logo {
+        height: 60px;
+        width: auto;
+        position: absolute;
+        left: 10px;
+    }
     ul {
         display: flex;
         justify-content: space-around;

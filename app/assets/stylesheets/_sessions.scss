@@ -5,7 +5,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-
+    position: relative;
+    .sti-logo {
+        position: absolute;
+        top: 5px;
+        left: 10px;
+        height: 100px;
+        width: auto;
+    }
     .sign-in-window {
         width: 350px;
         margin: auto;

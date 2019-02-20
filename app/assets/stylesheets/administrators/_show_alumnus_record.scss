@@ -1,4 +1,5 @@
 .show-alumnus-record {
+    position: relative;
     height: 100vh;
     background-color: #f9f9f9;
     width: 100vw;
@@ -6,6 +7,14 @@
     * {
         font-family: lato, arial, verdana;
         color: rgba(0, 0, 0, 0.65); 
+    }
+
+    .sti-logo {
+        position: absolute;
+        height: 100px;
+        width: auto;
+        top: 0;
+        left: 4px;
     }
 
      .header, .header-second {

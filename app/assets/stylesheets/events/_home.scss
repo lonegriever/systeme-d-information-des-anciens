@@ -3,7 +3,28 @@
     flex-direction: column;
     width: 100%;
     height: 100vh;
+    h4.create-new-event-header {
+        display: inline-block;
+        font-size: 2.5em;
+        font-family: lato, arial, verdana;
+        color:#0288D1;
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 10px;
+        position: relative;
+        
+    }
     .create-event-section {
+         position: relative;
+        .create-new-image {
+            position: absolute;
+            height: 100px;
+            width: auto;
+            top: -50px;
+        }
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        padding: 20px;
         margin: auto;
         height: 60%;
         width: 80%;
@@ -13,7 +34,7 @@
             flex-direction: column;
             justify-content: center;
             .errors-section {
-                border: 1px solid black;
+                // border: 1px solid black;
                 height: 40px;
                 width: 60%;
                 margin: auto;
@@ -68,6 +89,7 @@
             }
 
             .event-caption {
+                box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.2);
                 textarea {
                     width: 100%;
                     height: 200px;
@@ -76,9 +98,9 @@
                     font-family: lato, arial, verdana;
                     padding: 10px;
                     outline: none;
-                    border-radius: 5px;
-                    border: 1px solid rgba(0, 0, 0, 0.25);
-                    letter-spacing: 1.5px;
+                    border: none;
+                    letter-spacing: 1px;
+                    font-size: 1.2em;
                 }
             }
 

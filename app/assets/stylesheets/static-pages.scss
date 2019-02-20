@@ -1,16 +1,44 @@
+div.container  {
+    display: flex;
+    justify-content: center;
+}
 h4.mission-and-vision-header {
+    display: inline-block;
     font-family: lato;
     font-size: 48px;
     text-transform: uppercase;
-    padding: 20px 15px;
+    padding: 20px 0;
     color: #C62828;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    &::before {
+        z-index: -1;
+        content: '';
+        height: 100%;
+        position: absolute;
+        left: -20px;
+        right: -20px;
+        background-color: white;
+        top: 0;
+    }
+
+    &::after {
+        z-index: -2;
+        content: '';
+        top: 25%;
+        position: absolute;
+        height: 50%;
+        width: 100vw;
+        display: block;
+        background-color: #0D47A1;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 section.about-bg-section {
     width: 100%;
     height: 100vh;
-    background-image: image-url('bg-school-1.jpg');
+    background-image: image-url('school-bg-image.jpg');
     background-position: center;
     background-size: cover;
 }
