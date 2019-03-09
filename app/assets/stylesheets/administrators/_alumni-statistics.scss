@@ -1,29 +1,16 @@
-.bar-chart-section-header {
-    margin: 15px 0;
-    h4.header {
-        text-align: center;
-        font-size: 26px;
-        color: #455A64;
-        font-family: lato, verdana, arial;
-    }
-}
 
 .statistics, .bar-chart {
     display: flex;
     justify-content: center;
-
     * { font-family: lato, arial, verdana; }
 
     .canvas-container,
-    .employment-status-options-container,
-    .year-and-course-selection,
-    .bar-chart-canvas-container {
+    .employment-status-options-container {
         width: 305px;
         margin: 10px;
     }
 
-    .employment-status-options-container,
-    .year-and-course-selection {
+    .employment-status-options-container {
         display: flex;
         flex-direction: column;
         height: 400px;
@@ -39,16 +26,6 @@
             font-size: 14px;
             position: relative;
             color: #455a64;
-        }
-        input[type=number].bar-chart-year-selector {
-            width: 95%;
-            border-radius: 4px;
-            margin: 6px auto;
-            padding: 5px;
-            outline: none;
-            border: 1px solid rgba(0, 0, 0, 0.25);
-            font-size: 15px;
-            color:  #263238;
         }
         h5.years-label::before  {
             content: '';
@@ -105,7 +82,7 @@
         }
     }
     
-    .canvas-container, .bar-chart-canvas-container {
+    .canvas-container {
         box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.25);
         padding: 20px;
         height: 400px;
@@ -194,29 +171,74 @@
     }
 }
 
+div.bar-chart-section-header {
+    margin: 15px 0;
+    h4.header {
+        text-align: center;
+        font-size: 26px;
+        color: #455A64;
+        font-family: lato, verdana, arial;
+    }
+}
+
+div.bar-chart-canvas-container {
+    width: 95%;
+    margin: 15px auto;
+    padding: 0 2em;
+    height: 400px;
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+    canvas#bar-chart-canvas {
+        width: 80%;
+        height: 100%;
+    }
+}
+
 .bar-chart {
-    .year-and-course-selection {
+    flex-direction: column;
+    .year-selection {
+        display: flex;
+        padding: 0 2em;
+        align-items: center;
+        justify-content: center;
+        & > * {margin-right: 10px;}
+        h5 {
+
+            font-size: 1em;
+            font-family: lato, verdana, arial;
+            font-weight:  300;
+            color: #455a64;
+        }
         .bar-chart-course-selection-group {
             display: flex;
-            flex-direction: column;
             padding: 0 2px;
-            select {
-                cursor: pointer;
-                flex: 0 1 40px;
-                margin: 6px 5px;
-                padding:  6px 0;
-                background-color: #eeeeee;
-                border-radius: 3px;
-                padding: 10px;
-                background-color: #ECEFF1;
-                color: #546E7A;
-                border: 1px solid #CFD8DC;
-                font-size: 12px;
-            }
+        }
+         input[type=number].bar-chart-year-selector {
+            border-radius: 4px;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            font-size: 15px;
+            color:  #263238;
+            flex: 0 1 20%;
+            height: 40px;
+            padding: 5px;
         }
         .refresh-bar-chart-button-container {
             #refresh-bar-chart-button {
-                background-color: #0D47A1;
+                background-color: #1565C0;
+                color: #f4f4f4;
+                padding: 10px 15px;
+                font-size: 16px;
+                border-radius: 4px;
+                border: transparent;
+                transition: background-color 0.2s ease;
+                cursor: pointer;
+                i {
+                    color: #f4f4f4;
+                    font-size: 14px;
+                    margin-right: 5px;
+                }
+                &:hover {
+                    background-color: #0D47A1;
+                }
             }
         }
     }

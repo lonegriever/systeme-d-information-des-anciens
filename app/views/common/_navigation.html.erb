@@ -1,7 +1,12 @@
 <div class="navigation">
     <audio src="<%= asset_path 'not-bad.mp3' %>" type="audio/mpeg" id="notif-sound"></audio>
-    <ul>
-        <%= image_tag  "sti-logo.jpg", class: 'sti-logo' %>
+    <ul class="navigation-list">
+        <div class="sti-logo-container">
+            <%= image_tag  "sti-logo.jpg", class: 'sti-logo' %>
+        </div>
+        <div class="bar-icon-container">
+            <i class="fas fa-bars" id="hidden-menu-bar-icon"></i>
+        </div>
         <li><%= link_to 'Home', new_event_path %></li>
         <li><%= link_to 'Events', events_path %></li>
         <li><%= link_to 'Alumni List', alumni_list_path %></li>
@@ -19,4 +24,28 @@
         </li>
         <li><%= link_to 'Logout', logout_path, method: 'delete' %></li>
     </ul>
+    <div class="hidden-menu-container">
+        <ul class="hidden-menu-list">
+            <li><%= link_to 'Home', new_event_path %></li>
+            <li><%= link_to 'Events', events_path %></li>
+            <li><%= link_to 'Alumni List', alumni_list_path %></li>
+            <li><%= link_to 'Statistics', alumni_statistics_path %></li>
+            <li><%= link_to 'About', about_path %></li>
+            <%
+=begin%>
+ <li>
+                <div class="notification-group">
+                    <input type="hidden" value="0" class="notification-offset-count">
+                    <span id="unread-notifications-count">0</span>
+                    <i class="fas fa-bell"></i>
+                    <div class="notifications-list-container">
+                        <ul id="notifications-list"></ul>
+                    </div>
+                </div>
+            </li> 
+<%
+=end%>
+            <li><%= link_to 'Logout', logout_path, method: 'delete' %></li>
+        </ul>
+    </div>
 </div>

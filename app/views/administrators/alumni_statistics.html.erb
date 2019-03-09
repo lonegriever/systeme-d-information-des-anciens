@@ -1,5 +1,6 @@
 <div class="alumni-statistics">
     <%= render 'common/navigation' %>
+    <% if false %>
     <div class="statistics">
         <div class="employment-status-options-container">
             <h5>Select course</h5>
@@ -55,26 +56,22 @@
             <div class="total-count-data">0</div>
         </div>
     </div>
+   
     <div class="bar-chart-section-header">
         <h4 class="header">Graduate Alumni Statistics</h4>
     </div>
     <div class="bar-chart">
-        <div class="year-and-course-selection">
+        <div class="year-selection">
             <h5>Specify year here</h5>
             <input type="number" class="bar-chart-year-selector" value="<%= Time.now.to_date.year - 1 %>">
-            <div class="bar-chart-course-selection-group">
-                <%= select_tag :course, options_for_select(courses), class: 'bar-chart-course-select' %>
-                <%= select_tag :course, options_for_select(swap_course_elements(0, 1)), class: 'bar-chart-course-select' %>
-                <%= select_tag :course, options_for_select(swap_course_elements(0, 2)), class: 'bar-chart-course-select' %>
-                <%= select_tag :course, options_for_select(swap_course_elements(0, 3)), class: 'bar-chart-course-select' %>
-                <%= select_tag :course, options_for_select(swap_course_elements(0, 4)), class: 'bar-chart-course-select' %>
-            </div>
             <div class="refresh-bar-chart-button-container">
                 <button type="button" id="refresh-bar-chart-button"><i class="fas fa-redo"></i>Refresh</button>
             </div>
-        </div>
+        </div> 
+
         <div class="bar-chart-canvas-container">
             <canvas id="bar-chart-canvas"></canvas>
         </div>
     </div>
+     <% end %>
 </div>

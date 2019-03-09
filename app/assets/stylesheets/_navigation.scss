@@ -4,25 +4,45 @@
     background-color: #1976D2;
     box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
     display: flex;
-    justify-content: flex-end;
     position: relative;
-    .sti-logo {
-        height: 60px;
-        width: auto;
+    div.sti-logo-container {
         position: absolute;
         left: 10px;
+        img.sti-logo {
+            height: 60px;
+            width: auto;
+        }
     }
-    ul {
+    
+    ul > div.bar-icon-container {
+        display: none;
+        i.fa-bars {
+            color: #f4f4f4;
+            font-size: 2em;
+        }
+        @media only screen and (max-width: 555px) {
+            flex: 0 1 100px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+        }
+    }
+
+    ul.navigation-list {
+        padding-left: 40px;
+        flex: 0 1 100%;
         display: flex;
-        justify-content: space-around;
-        flex-direction: row;
+        justify-content: flex-end;
+        flex-wrap: wrap;
         height: 100%;
-        width: 40%;
         li {
             list-style: none;
             line-height: 60px;
             text-transform: capitalize;
             font-family: lato, arial, verdana;
+            @media only screen and (max-width: 555px) {
+                display: none;
+            }
             a {
                 text-decoration: none;
                 color: #f4f4f4;
@@ -123,6 +143,43 @@
         }
     }
 
+    div.hidden-menu-container {
+        position: absolute;
+        height: 200px;
+        background: #2196f3;
+        width: 100%;
+        top: -350%;
+        visibility: hidden;
+        display: flex;
+        align-items: center;
+        transition: top 250ms ease;
+        z-index: -1;
+        ul.hidden-menu-list {
+            display: flex;
+            flex-direction: column;
+            height: 180px;
+            flex: 0 1 100%;
+            li {
+                flex: 1 1 20%;
+                display: flex;
+                align-items: center;
+                width: 100%;
+                transition: background-color 250ms ease-in-out;
+                &:hover {
+                    background-color: #0d47a1;
+                }
+            }
+            li > a {
+                flex: 0 1 100%;
+                text-decoration: none;
+                color: #f4f4f5;
+                font-family: lato, verdana, arial;
+                font-size: 1.1em;
+                padding-left: 10px;
+            }
+        }
+    }
+
     .user-navigation {
         width: 300px;
         li {
@@ -163,5 +220,12 @@
                 top: 30%;
             }
         }
+    }
+}
+
+.show-hidden-navigation {
+    @media only screen and (max-width:  550px) {
+        visibility: visible !important;
+        top: 100% !important;
     }
 }
