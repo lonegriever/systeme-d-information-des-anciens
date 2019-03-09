@@ -5,6 +5,7 @@
     box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
     display: flex;
     position: relative;
+    z-index: 2;
     div.sti-logo-container {
         position: absolute;
         left: 10px;
@@ -153,7 +154,7 @@
         display: flex;
         align-items: center;
         transition: top 250ms ease;
-        z-index: -1;
+        z-index: 1;
         ul.hidden-menu-list {
             display: flex;
             flex-direction: column;

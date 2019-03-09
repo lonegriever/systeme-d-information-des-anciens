@@ -54,8 +54,19 @@ class Api::ChartsDataController < ApplicationController
     end
 
     def build_employed_count_result
+        courses = [
+                'Bachelor of Science in Information Technology',
+                'Bachelor of Science in Hospitality Management',
+                'Bachelor of Science in Criminology',
+                'Bachelor of Science in Tourism Management',
+                'Bachelor of Arts in Communication',
+                'Bachelor of Science in Business Administration',
+                'Bachelor of Science on Accountancy',
+                'Bachelor of Science in Psychology',
+                'Bachelor of Science in Computer Science'
+        ]
         result = {}
-        params[:selectedCourses].each do |course|
+        courses.each do |course|
             result.store(course, get_employed_count_for_course(course))
         end
         result

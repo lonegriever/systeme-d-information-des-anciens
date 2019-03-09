@@ -182,14 +182,17 @@ div.bar-chart-section-header {
 }
 
 div.bar-chart-canvas-container {
-    width: 95%;
+    width: 95vw;
     margin: 15px auto;
-    padding: 0 2em;
-    height: 400px;
+    padding: 0 1em;
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+    overflow: auto;
     canvas#bar-chart-canvas {
-        width: 80%;
-        height: 100%;
+        width: 100%;
+        max-height: 400px;
+        @media only screen and (max-width:  950px) {
+            width: 850px;
+        }
     }
 }
 
@@ -200,7 +203,17 @@ div.bar-chart-canvas-container {
         padding: 0 2em;
         align-items: center;
         justify-content: center;
-        & > * {margin-right: 10px;}
+        flex-wrap: wrap;
+        & > * {
+            margin-right: 10px;
+            @media only screen and (max-width: 450px) {
+                flex: 0 1 100%;
+                text-align: center;
+                &:not(:first-child) {
+                    margin-top: 10px;
+                }
+            }
+        }
         h5 {
 
             font-size: 1em;
