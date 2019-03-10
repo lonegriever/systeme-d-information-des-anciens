@@ -1,48 +1,77 @@
 <div class="edit-user-page">
-    <%= form_for @user, url: update_user_path(@user.id), class: 'edit-user-form' do |f| %>
-        <%= f.fields_for :alumnus_record do |f| %>
-            <fieldset class="second-window">
+    <%= render partial: 'common/navigation' %>
+    <%= form_for @alumnus_record, url: update_user_path(@alumnus_record.id), class: 'edit-user-form' do |f| %>
+        <div class="personal-information-header">
+            <h4>Personal Information</h4>
+            <%= image_tag 'personal-info.png', class: 'personal-info-logo' %>
+        </div>
+        <fieldset class="second-window">
+            <div class="input-pair">
+                <label>First Name</label>
                 <%= f.text_field :first_name, placeholder:  'First Name' %>
+            </div>
+            <div class="input-pair">
+                <label>Last Name</label>
                 <%= f.text_field :last_name, placeholder: 'Last Name' %>
+            </div>
+            <div class="input-pair">
+                <label>Email</label>
                 <%= f.email_field :email, placeholder: 'Email' %>
-                <div class="gender-select-section">
-                    <%= f.label :gender, 'Gender:' %>
-                    <%= f.select :gender, options_for_select([['Male', 'male'], ['Female', 'female']]) %>
-                </div>
-                <div class="birth-date-section">
-                    <%= f.label :birth_date, 'Birth Date:' %>
-                    <%= f.text_field :birth_date %>
-                </div>
-            </fieldset>
-            <fieldset class="third-window">
-                <div class="course-select-section">
-                    <%= f.label  :course, 'Course:' %>
-                    <%= f.select :course, courses %>
-                </div>
-                <div class="year-graduated-select-section">
-                    <%= f.label :year_graduated %>
-                    <%= f.select :year_graduated, year_graduated_options %>
-                </div>
-                <h5>Employment Status</h5>
-                <div class="employment-status-radio-section">
-                    <%= f.radio_button :employment_status, 'employed', checked: true %>
-                    <%= f.label :employment_status, 'Employed', value: 'employed' %>
-                    <%= f.radio_button :employment_status, 'unemployed' %>
-                    <%= f.label :employment_status, 'Unemployed', value: 'unemployed' %>
-                </div>
-            </fieldset>
+            </div>
+            <div class="gender-select-section">
+                <%= f.label :gender, 'Gender:' %>
+                <%= f.select :gender, options_for_select([['Male', 'male'], ['Female', 'female']]) %>
+            </div>
+            <div class="birth-date-section">
+                <%= f.label :birth_date, 'Birth Date:' %>
+                <%= f.text_field :birth_date %>
+            </div>
+        </fieldset>
+        <% if false %>
+        <fieldset class="third-window">
+            <div class="course-select-section">
+                <%= f.label  :course, 'Course:' %>
+                <%= f.select :course, courses %>
+            </div>
+            <div class="year-graduated-select-section">
+                <%= f.label :year_graduated %>
+                <%= f.select :year_graduated, year_graduated_options %>
+            </div>
+            <h5>Employment Status</h5>
+            <div class="employment-status-radio-section">
+                <%= f.radio_button :employment_status, 'employed', checked: true %>
+                <%= f.label :employment_status, 'Employed', value: 'employed' %>
+                <%= f.radio_button :employment_status, 'unemployed' %>
+                <%= f.label :employment_status, 'Unemployed', value: 'unemployed' %>
+            </div>
+        </fieldset>
+        <% if @alumnus_record.employment_status == 'employed'%>
             <fieldset class="employment-information-window">
                 <h5>Employment Information</h5>
                 <%= f.fields_for :employment_record do |employment_record| %>
-                    <%= render 'employment_record', employment_record: employment_record %>
+                    <div class="text-field-pair">
+                        <label>Company Name</label>
+                        <%= employment_record.text_field :company_name, placeholder: 'Company Name:' %>    
+                    </div>
+                    <div class="text-field-pair">
+                        <label>Position</label>
+                        <%= employment_record.text_field :position, placeholder: 'Position' %>    
+                    </div>
+                    <div class="text-field-pair">
+                        <label>Date Started</label>
+                        <%= employment_record.text_field :date_started, placeholder: 'Date Started' %>
+                    </div>
                 <% end %>
             </fieldset>
-            <fieldset class="unemployment-reason-window">
-                <div class="unemployment-reason-section">
-                    <%= f.label :reason_for_unemployment, 'Reason for unemployment' %>
-                    <%= f.text_area :reason_for_unemployment %>
-                </div>
-            </fieldset>
+            <% else %>
+                 <fieldset class="unemployment-reason-window">
+                    <div class="unemployment-reason-section">
+                        <%= f.label :reason_for_unemployment, 'Reason for unemployment' %>
+                        <%= f.text_area :reason_for_unemployment %>
+                    </div>
+                </fieldset>
         <% end %>
+
+        <% end %> <%#> end of comment %>
     <% end %>
 </div>

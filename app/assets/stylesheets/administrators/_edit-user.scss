@@ -1,10 +1,69 @@
 
 div.edit-user-page {
     width: 100%;
-    background: #f2f2f2;
+    background: #f9f9f9;
+    div.personal-information-header {
+        margin: 15px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h4 {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #455a64;
+            font-family:  lato, verdana, arial;
+        }
+
+        img.personal-info-logo {
+            text-align: center;
+            height: 200px;
+            width: auto;
+        }
+
+        
+    }
+    fieldset {
+        background-color: #fefefe;
+        width: 600px;
+        border: none;
+        box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
+        margin: 0 auto;
+        @media only screen and (max-width: 620px) {
+            width: 100%;
+        }
+    }
     fieldset.second-window {
         padding: 0.5em;
         text-align: center;
+        margin-bottom: 15px;
+        div.input-pair {
+            display: flex;
+            width: 400px;
+            margin: 10px auto;
+            align-items: center;
+            flex-wrap: wrap;
+            @media only screen and (max-width: 450px) {
+                width: 100%;
+            }
+            label {
+                flex: 0 1 30%;
+                text-align: left;
+                @media only screen and (max-width: 350px) {
+                    flex: 0 1 100%;
+                    margin-bottom: 10px;
+                }
+            }
+            input {
+                flex: 0 1 70%;
+                @media only screen and (max-width: 350px) {
+                    flex: 0 1 100%;
+                }
+            }
+            input[type=text] {
+                text-transform: capitalize;
+            }
+        }
         label {
             font-family: lato, verdana, arial;
             font-size: 1.1em;
@@ -70,18 +129,28 @@ div.edit-user-page {
             font-weight: 300;
             text-align: center;
         }
-        div.form-navigation, div.next-button-container {
-            display: none;
-        }
-        input[type=text] {
-            margin: 0;
-            flex: 0 1 300px;
-            border: 1px solid rgba(0, 0, 0, 0.15);
-            border-radius: 4px;
-            padding: 5px;
-            font-family: lato, verdana, arial;
-            font-size: 1.1em;
-            font-weight: 100;
+        div.text-field-pair {
+            margin: 10px auto;
+            display: flex;
+            width: 400px;
+            align-items: center;
+            label {
+                font-family: lato, verdana, arial;
+                font-size: 0.9em;
+                flex: 0 1 30%;
+                text-align: left;
+            }
+            input[type=text] {
+                flex: 0 1 70%;
+                margin: 0;
+                flex: 0 1 300px;
+                border: 1px solid rgba(0, 0, 0, 0.15);
+                border-radius: 4px;
+                padding: 5px;
+                font-family: lato, verdana, arial;
+                font-size: 1.1em;
+                font-weight: 100;
+            }
         }
     }
 

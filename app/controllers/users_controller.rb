@@ -58,6 +58,6 @@ class UsersController < ApplicationController
     end
 
     def set_user
-        @user = User.find_by(id:params[:user_id])
+        @alumnus_record = AlumnusRecord.find_by(id:params[:user_id])
     end
 end
