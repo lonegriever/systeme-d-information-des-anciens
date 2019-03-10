@@ -6,6 +6,13 @@
             <h4>Personal Information</h4>
             <%= image_tag 'personal-info.png', class: 'personal-info-logo' %>
         </div>
+        <% if @alumnus_record.errors.present? %>
+            <div class="errors-container">
+            <% @alumnus_record.errors.full_messages.each do |message| %>
+                     <div class="error-message"><%= message %></div>
+            <% end %>
+            </div>
+        <% end %>
         <fieldset class="second-window">
             <div class="input-pair">
                 <label>First Name</label>

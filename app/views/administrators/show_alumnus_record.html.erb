@@ -6,11 +6,13 @@
     <div class="subtitle">
         <h4>Alumnus Record</h4>
     </div>
+    <% if flash.present? %>
     <div class="flash-container">
         <% flash.each do |name, message| %>
             <div class="flash-message"><%= message %></div>
         <% end %>
     </div>
+    <% end %>
     <div class="alumnus-record">
         <div class="edit-link-container">
             <i class="fas fa-edit"></i><%= link_to 'Edit', user_edit_path(@alumnus_record.id)  %> 

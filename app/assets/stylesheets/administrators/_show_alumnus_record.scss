@@ -11,9 +11,21 @@
 
     div.flash-container {
         margin: 0 auto;
-        width: 95%;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      height: 40px;
-        width: 300px; 
-        background-color: '#388e3c';
+        width: 310px; 
+        background-color: #388e3c;
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
+        padding: 10px;
+        justify-content: center;
+        @media only screen and (max-width: 350px) {
+            width: 95%;
+        }
+        div.flash-message {
+            color: #fefefe;
+            font-size: 0.9em;
+            text-align: center;
+        }
     }
 
     .sti-logo {

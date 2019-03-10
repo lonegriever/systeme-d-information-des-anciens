@@ -42,6 +42,25 @@ div.edit-user-page {
             width: auto;
         }
     }
+    div.errors-container {
+        background-color: #f4f4f4;
+        border: 1px solid #d32f2f;
+        width: 600px;
+        border-radius: 4px;
+        margin: 0 auto;
+        @media only screen and (max-width: 620px) {
+            width: 100%;
+        }
+        div {
+            padding: 8px;
+            font-size: 1em;
+            text-align: center;
+            font-family: lato, verdana, arial;
+            &:not(:last-of-type) {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            }
+        }
+    }
     fieldset {
         background-color: #fefefe;
         width: 600px;
