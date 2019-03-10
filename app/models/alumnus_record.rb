@@ -4,7 +4,7 @@ class AlumnusRecord < ApplicationRecord
     accepts_nested_attributes_for :employment_record
 
     before_create :down_case_attributes
-    after_create :create_notification_for_admin
+    # after_create :create_notification_for_admin
     
     validates_presence_of [
         :first_name,
@@ -17,10 +17,10 @@ class AlumnusRecord < ApplicationRecord
         :employment_status
     ]
 
-    validates :first_name, length:  {minimum: 3, maximum: 16}
-    validates :last_name,  length:  {minimum: 3, maximum: 16}
+    validates :first_name, length:  {minimum: 2, maximum: 16}
+    validates :last_name,  length:  {minimum: 2, maximum: 16}
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
-    validates :reason_for_unemployment, length: {maximum: 254}
+    validates :reason_for_unemployment, length: {maximum: 500}
     validates :reason_for_unemployment, presence: true, if: :unemployed
 
     def full_name

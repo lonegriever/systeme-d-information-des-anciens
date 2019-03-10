@@ -19,7 +19,6 @@ EmploymentRecord.create!(
     company_name: 'Accenture',
     position: 'Network Administrator',
     date_started: Time.now.to_date - 1.year,
-    salary: 25000,
     alumnus_record_id: 1
 )
 
@@ -57,7 +56,6 @@ AlumnusRecord.create!(
             company_name: Faker::Company.name,
             position: Faker::Company.profession,
             date_started: Date.new(rec.year_graduated, Faker::Number.between(1, 12), Faker::Number.between(2, 27)),
-            salary: Faker::Number.between(15000, 100000),
             alumnus_record_id: rec.id
         )
     end
@@ -84,7 +82,6 @@ end
             company_name: Faker::Company.name,
             position: Faker::Company.profession,
             date_started: Date.new(rec.year_graduated, Faker::Number.between(1, 12), Faker::Number.between(2, 27)),
-            salary: Faker::Number.between(15000, 100000),
             alumnus_record_id: rec.id
         )
     end
@@ -112,7 +109,6 @@ end
             company_name: Faker::Company.name,
             position: Faker::Company.profession,
             date_started: Date.new(rec.year_graduated, Faker::Number.between(1, 12), Faker::Number.between(2, 27)),
-            salary: Faker::Number.between(15000, 100000),
             alumnus_record_id: rec.id
         )
     end
@@ -139,7 +135,6 @@ end
             company_name: Faker::Company.name,
             position: Faker::Company.profession,
             date_started: Date.new(rec.year_graduated, Faker::Number.between(1, 12), Faker::Number.between(2, 27)),
-            salary: Faker::Number.between(15000, 100000),
             alumnus_record_id: rec.id
         )
     end
@@ -167,7 +162,6 @@ end
             company_name: Faker::Company.name,
             position: Faker::Company.profession,
             date_started: Date.new(rec.year_graduated, Faker::Number.between(1, 12), Faker::Number.between(2, 27)),
-            salary: Faker::Number.between(15000, 100000),
             alumnus_record_id: rec.id
         )
     end
@@ -194,7 +188,6 @@ end
             company_name: Faker::Company.name,
             position: Faker::Company.profession,
             date_started: Date.new(rec.year_graduated, Faker::Number.between(1, 12), Faker::Number.between(2, 27)),
-            salary: Faker::Number.between(15000, 100000),
             alumnus_record_id: rec.id
         )
     end
@@ -223,7 +216,6 @@ end
             company_name: Faker::Company.name,
             position: Faker::Company.profession,
             date_started: Date.new(rec.year_graduated, Faker::Number.between(1, 12), Faker::Number.between(2, 27)),
-            salary: Faker::Number.between(15000, 100000),
             alumnus_record_id: rec.id
         )
     end
@@ -252,7 +244,6 @@ end
             company_name: Faker::Company.name,
             position: Faker::Company.profession,
             date_started: Date.new(rec.year_graduated, Faker::Number.between(1, 12), Faker::Number.between(2, 27)),
-            salary: Faker::Number.between(15000, 100000),
             alumnus_record_id: rec.id
         )
     end
