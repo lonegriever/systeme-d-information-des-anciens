@@ -7,6 +7,9 @@
         <h4>Alumnus Record</h4>
     </div>
     <div class="alumnus-record">
+        <div class="edit-link-container">
+            <i class="fas fa-edit"></i><%= link_to 'Edit', user_edit_path(current_user.id)  %> 
+        </div>
         <div class="row">
             <div class="column">
                 <div class="value"><%= @alumnus_record.first_name.capitalize %></div>
@@ -103,16 +106,6 @@
                     </div>
                     <div class="description">
                         Date Started
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="single-column">
-                    <div class="value">
-                        <%= number_to_currency(@employment_record.salary, unit: '₱ ', delimiter: ' ,') %>
-                    </div>
-                    <div class="description">
-                        Salary
                     </div>
                 </div>
             </div>

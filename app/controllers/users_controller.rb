@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     include SessionsHelper
 
+    before_action :set_user, only:[:edit, :update]
     def new
         @user = User.new
         @user.build_alumnus_record
@@ -18,6 +19,13 @@ class UsersController < ApplicationController
     end
 
     def about
+    end
+
+    def edit
+    end
+
+    def update
+        head :ok
     end
 
     private
@@ -43,10 +51,13 @@ class UsersController < ApplicationController
                         :alumnus_record_id,
                         :company_name,
                         :position,
-                        :date_started,
-                        :salary
+                        :date_started
                     ]
                 ]
             )
+    end
+
+    def set_user
+        @user = User.find_by(id:params[:user_id])
     end
 end

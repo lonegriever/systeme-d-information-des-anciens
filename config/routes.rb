@@ -12,9 +12,11 @@ Rails.application.routes.draw do
     end
 
     scope '/users' do
-        get     '/register',    to: 'users#new',       as: 'new_users'
-        post    '/create',      to: 'users#create',    as: 'create_user'
-        get     '/create',      to: 'users#new'
+        get     '/register',        to: 'users#new',       as: 'new_users'
+        post    '/create',          to: 'users#create',    as: 'create_user'
+        get     '/create',          to: 'users#new'
+        get     '/edit/:user_id',   to: 'users#edit',      as: 'user_edit'
+        post    '/update',          to: 'users#update',     as: 'update_user'
     end
 
     namespace :api do

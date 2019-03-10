@@ -1,9 +1,5 @@
 <div class="events-index">
-    <% if current_user.is_an_admin %>
-        <%= render partial: 'common/navigation' %>
-    <% else %>
-        <%= render partial: 'common/user-navigation' %>
-    <% end %>
+    <%= render partial: 'common/navigation' %>
     <div class="events-header-image-container">
         <%= image_tag 'upcoming-events.png', class: 'events-header-image' %>
     </div>
