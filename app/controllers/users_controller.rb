@@ -25,7 +25,11 @@ class UsersController < ApplicationController
     end
 
     def update
-        head :ok
+        if @alumnus_record.update(alumnus_record_params)
+            redirect_to show_alumnus_record_path(@alumnus_record.id), notice: "The record has been successfully updated."
+        else
+            render :edit
+        end
     end
 
     private
@@ -55,6 +59,29 @@ class UsersController < ApplicationController
                     ]
                 ]
             )
+    end
+
+    def alumnus_record_params
+        params.require(:alumnus_record).permit(
+            :id,
+            :user_id,
+            :first_name,
+            :last_name,
+            :email,
+            :gender,
+            :birth_date,
+            :course,
+            :year_graduated,
+            :employment_status,
+            :reason_for_unemployment,
+            employment_record_attributes: [
+                :id,
+                :alumnus_record_id,
+                :company_name,
+                :position,
+                :date_started
+            ]
+        )
     end
 
     def set_user

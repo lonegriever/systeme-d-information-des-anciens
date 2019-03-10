@@ -1,6 +1,7 @@
 <div class="edit-user-page">
     <%= render partial: 'common/navigation' %>
     <%= form_for @alumnus_record, url: update_user_path(@alumnus_record.id), class: 'edit-user-form' do |f| %>
+        <input type="hidden" name="user_id" value="<%= @alumnus_record.id %>">
         <div class="personal-information-header">
             <h4>Personal Information</h4>
             <%= image_tag 'personal-info.png', class: 'personal-info-logo' %>
@@ -27,7 +28,6 @@
                 <%= f.text_field :birth_date %>
             </div>
         </fieldset>
-        <% if false %>
         <fieldset class="third-window">
             <div class="course-select-section">
                 <%= f.label  :course, 'Course:' %>
@@ -71,7 +71,8 @@
                     </div>
                 </fieldset>
         <% end %>
-
-        <% end %> <%#> end of comment %>
+        <div class="submit-button-container">
+            <button type="submit" id="edit-submit-button">Submit</button>
+        </div>
     <% end %>
 </div>
