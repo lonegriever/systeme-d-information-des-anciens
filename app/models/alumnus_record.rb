@@ -4,7 +4,7 @@ class AlumnusRecord < ApplicationRecord
     accepts_nested_attributes_for :employment_record
 
     before_create :down_case_attributes
-    # after_create :create_notification_for_admin
+    after_create :create_notification_for_admin
     
     validates_presence_of [
         :first_name,
