@@ -3,17 +3,18 @@
 
     .record-filter {
         margin-top: 10px;
-        padding-left: 20px;
 
         * { font-family: lato, arial, verdana; }
         i { font-family:  "Font Awesome 5 Free"; }
         .row { 
             margin: 10px;
             display: block;
+            // width: 100%;
          }
 
          .column {
              display: flex;
+             flex-wrap: wrap;
          }
 
         h5 {
@@ -35,19 +36,34 @@
             border-radius: 4px;
             font-size: 14px;
             border: 1px solid rgba(0, 0, 0, 0.25);
-            margin: auto 5px auto 0;
+            margin: auto 5px 15px 0;
             margin-right: 10px;
+            @media only screen and (max-width: 450px) {
+                flex: 0 1 100%;
+            }
+        }
+
+        div.course-select-container {
+            margin-top: 10px;
+            max-width: 100%;
+            select {
+                width: 100%;
+                height: 40px;
+            }
         }
 
         button[type=submit] {
             padding: 10px 15px;
-            margin: 5px;
+            margin: 10px 15px;
             border-radius: 4px;
             background-color: #1565C0;
             font-size: 14px;
             color: #f4f4f4;
             border: none;
             cursor: pointer;
+            @media only screen and  (max-width: 450px) {
+                margin: 10px auto;
+            }
             i {
                 color: #f4f4f4;
             }
@@ -71,7 +87,10 @@
     }
 
     .table-container {
-        height: 410px;
+        box-sizing: border-box;
+        overflow-x: auto;
+        padding: 1em;
+        width: 100%;
         h4.no-record-found-notice {
             height: 30px;
             text-align: center;
@@ -80,11 +99,13 @@
     }
 
     .table-container table {
-        width: 1220px;
-        margin: 15px auto auto ;
+        width: 100%;
         box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.4);
         border-collapse: collapse;
         border-radius: 4px;
+        @media only screen and (max-width: 850px) {
+            width: 900px;
+        }
         tr {
             &:not(:first-of-type) {
                 border-top: 1px solid rgba(0, 0, 0, 0.25);
@@ -136,6 +157,7 @@
     .pagination-links {
         width: 100%;
         text-align: center;
+        margin-bottom: 15px;
         nav {
             margin: auto;
         }

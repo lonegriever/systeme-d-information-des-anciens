@@ -20,7 +20,9 @@
                             <%= label_tag :gender_female, 'Female' %>
                         </div>
                     </div>
-                    <%= select_tag :course, options_for_select(courses) %>
+                    <div class="course-select-container">
+                        <%= select_tag :course, options_for_select(courses) %>
+                    </div>
                     <%= button_tag '<i class="fas fa-filter"></i> Search'.html_safe %>
                 </div>
             </div>
@@ -45,6 +47,5 @@
     </div>
     <div class="pagination-links">
         <%= paginate @alumnus_records %>
-    </div>
-    
+    </div> 
 </div>
