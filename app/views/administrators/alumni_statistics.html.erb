@@ -1,17 +1,16 @@
 <div class="alumni-statistics">
     <%= render 'common/navigation' %>
-    <% if false %>
     <div class="statistics">
         <div class="employment-status-options-container">
             <h5>Select course</h5>
             <%= select_tag :course, options_for_select(courses), id: 'selected-course-for-statistics' %>
             <h5 class="years-label">Specify years here</h5>
             <div class="years-number-fields-group">
-                <input type="number" class="year-field" min="0" step="1">
-                <input type="number" class="year-field" min="0" step="1">
-                <input type="number" class="year-field" min="0" step="1">
-                <input type="number" class="year-field" min="0" step="1">
-                <input type="number" class="year-field" min="0" step="1">
+                <input type="number" class="year-field" min="0" max="2019" step="1" maxlength="4">
+                <input type="number" class="year-field" min="0" max="2019" step="1">
+                <input type="number" class="year-field" min="0" max="2019" step="1">
+                <input type="number" class="year-field" min="0" max="2019" step="1">
+                <input type="number" class="year-field" min="0" max="2019" step="1">
             </div>
             <div class="refresh-button-container">
                 <button type="button" id="refresh-chart-button"><i class="fas fa-redo-alt"></i>Refresh</button>
@@ -21,42 +20,43 @@
             <canvas id="stats-chart-canvas"></canvas>    
         </div>
     </div>
-    <div class="alumni-statistics-summary">
-        <div class="headers">
-            <div class="img-container"><%= image_tag 'summary-icon.png' %></div>
+    <div class="alumni-statistics-summary-container">
+        <div class="alumni-statistics-summary">
+            <div class="headers">
+                <div class="img-container"><%= image_tag 'summary-icon.png' %></div>
 
-            <div class="header-item">Header 1</div>
-            <div class="header-item">Header 2</div>
-            <div class="header-item">Header 3</div>
-            <div class="header-item">Header 4</div>
-            <div class="header-item">Header 5</div>
-        </div>
-        <div class="employed-count">
-            <div class="employed-count-header">Employed<i class="far fa-check-circle"></i></div>
-            <div class="employed-count-data">0</div>
-            <div class="employed-count-data">0</div>
-            <div class="employed-count-data">0</div>
-            <div class="employed-count-data">0</div>
-            <div class="employed-count-data">0</div>
-        </div>
-        <div class="unemployed-count">
-            <div class="unemployed-count-header">Unemployed<i class="far fa-times-circle"></i></div>
-            <div class="unemployed-count-data">0</div>
-            <div class="unemployed-count-data">0</div>
-            <div class="unemployed-count-data">0</div>
-            <div class="unemployed-count-data">0</div>
-            <div class="unemployed-count-data">0</div>
-        </div>
-        <div class="total-count">
-            <div class="total-count-header">Total</div>
-            <div class="total-count-data">0</div>
-            <div class="total-count-data">0</div>
-            <div class="total-count-data">0</div>
-            <div class="total-count-data">0</div>
-            <div class="total-count-data">0</div>
+                <div class="header-item">Header 1</div>
+                <div class="header-item">Header 2</div>
+                <div class="header-item">Header 3</div>
+                <div class="header-item">Header 4</div>
+                <div class="header-item">Header 5</div>
+            </div>
+            <div class="employed-count">
+                <div class="employed-count-header">Employed<i class="far fa-check-circle"></i></div>
+                <div class="employed-count-data">0</div>
+                <div class="employed-count-data">0</div>
+                <div class="employed-count-data">0</div>
+                <div class="employed-count-data">0</div>
+                <div class="employed-count-data">0</div>
+            </div>
+            <div class="unemployed-count">
+                <div class="unemployed-count-header">Unemployed<i class="far fa-times-circle"></i></div>
+                <div class="unemployed-count-data">0</div>
+                <div class="unemployed-count-data">0</div>
+                <div class="unemployed-count-data">0</div>
+                <div class="unemployed-count-data">0</div>
+                <div class="unemployed-count-data">0</div>
+            </div>
+            <div class="total-count">
+                <div class="total-count-header">Total</div>
+                <div class="total-count-data">0</div>
+                <div class="total-count-data">0</div>
+                <div class="total-count-data">0</div>
+                <div class="total-count-data">0</div>
+                <div class="total-count-data">0</div>
+            </div>
         </div>
     </div>
-   <% end %>
     <div class="bar-chart-section-header">
         <h4 class="header">Graduate Alumni Statistics</h4>
     </div>

@@ -1,9 +1,13 @@
 
-.statistics, .bar-chart {
+.statistics {
+    width: 100%;
     display: flex;
     justify-content: center;
+    @media only screen and (max-width: 1050px) {
+        flex-wrap: wrap-reverse;
+    }
     * { font-family: lato, arial, verdana; }
-
+    
     .canvas-container,
     .employment-status-options-container {
         width: 305px;
@@ -85,18 +89,38 @@
     .canvas-container {
         box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.25);
         padding: 20px;
-        height: 400px;
-        width: 700px;
+        flex: 0 1 80%;
+        @media only screen and (max-width: 768px) {
+            flex: 0 1 100%;
+        }
+        @media only screen and (max-width: 450px) {
+            height: 200px;
+        }
+        canvas#stats-chart-canvas {
+            width: 100%;
+            height: 400px;
+        }
     }
 }
 
+div.alumni-statistics-summary-container {
+    @media only screen and (max-width: 580px) {
+        max-width: 95vw;
+        overflow-x: auto;
+        margin: 0 auto;
+    }
+} 
+
 .alumni-statistics-summary {
     margin: 15px auto;
-    width: 1030px;
+    width: 98%;
     border-radius: 4px;
     box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.25);
     display: flex;
     flex-direction: column;
+    @media only screen and (max-width: 580px) {
+        width: 580px;
+    }
     * { 
         font-family: lato, arial, verdana;
         font-size: 14px;
@@ -138,6 +162,9 @@
                 position: absolute;
                 right: 10px;
                 font-size: 20px;
+                @media only screen and (max-width: 880px) {
+                    display: none;
+                }
             }
         }
 
@@ -206,7 +233,7 @@ div.bar-chart-canvas-container {
         flex-wrap: wrap;
         & > * {
             margin-right: 10px;
-            @media only screen and (max-width: 450px) {
+            @media only screen and (max-width: 550px) {
                 flex: 0 1 100%;
                 text-align: center;
                 &:not(:first-child) {

@@ -47,6 +47,18 @@ function administrators() {
                             return `${label}: ${tooltipItem.yLabel}%`;
                         }
                     }
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false,
+                            userCallback: function(label, index, labels) {
+                                if (Math.floor(label) === label) {
+                                    return  label;
+                                }
+                            }
+                        }
+                    }]
                 } 
             }
         });
@@ -73,6 +85,11 @@ function initializeYearFields() {
     const currentYear = new Date().getFullYear();
     $('.year-field').each(function(index, element){
         $(this).val(currentYear + index - 5);
+        $(this).on('input', function() {
+            if ($(this).val() > 2019) {
+                $(this).val('2019');
+            }
+        })
     });
 }
 
