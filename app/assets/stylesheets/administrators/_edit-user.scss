@@ -1,4 +1,109 @@
 
 div.edit-user-page {
+    width: 100%;
+    background: #f2f2f2;
+    fieldset.second-window {
+        padding: 0.5em;
+        text-align: center;
+        label {
+            font-family: lato, verdana, arial;
+            font-size: 1.1em;
+        }
+        input[type=text],
+        input[type=email] {
+            margin: 0;
+            flex: 0 1 300px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            padding: 5px;
+            font-family: lato, verdana, arial;
+            font-size: 1.1em;
+            font-weight: 100;
+        }
+        div.gender-select-section {
+            margin: 20px auto;
+            select {
+                padding: 5px;
+                font-family: lato, verdana arial;
+                font-size: 1em;
+                border-radius: 4px;
+                background-color: #fefefe;
+                cursor: pointer;
+            }
+        }
+    }
 
+    fieldset.third-window {
+        padding: 0.5em;
+        text-align: center;
+        label {
+            font-family: lato, verdana, arial;
+            font-size: 1.1em;
+            cursor:  pointer;
+        }
+        h5 {
+            font-family: lato, verdana, arial;
+            font-size: 1.5em;
+            font-weight: 300;
+        }
+        div.course-select-section,
+        div.year-graduated-select-section,
+        div.employment-status-radio-section {
+            margin: 20px auto;
+            select {
+                padding: 5px;
+                font-family: lato, verdana arial;
+                font-size: 1em;
+                border-radius: 4px;
+                background-color: #fefefe;
+                cursor: pointer;
+            }
+        }
+    }
+
+    fieldset.employment-information-window {
+        padding: 0.5em;
+        text-align: center;
+         h5 {
+            font-family: lato, verdana, arial;
+            font-size: 1.5em;
+            font-weight: 300;
+            text-align: center;
+        }
+        div.form-navigation, div.next-button-container {
+            display: none;
+        }
+        input[type=text] {
+            margin: 0;
+            flex: 0 1 300px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            padding: 5px;
+            font-family: lato, verdana, arial;
+            font-size: 1.1em;
+            font-weight: 100;
+        }
+    }
+
+    fieldset.unemployment-reason-window {
+        text-align: center;
+        padding: 5px;
+        label {
+            font-family: lato, verdana, arial;
+            font-size: 1em;
+        }
+        textarea {
+            width: 80%;
+            height: 200px;
+            resize: none;
+            font-size: 14px;
+            font-family: lato, arial, verdana;
+            padding: 10px;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            letter-spacing: 1.5px;
+            margin: 10px auto;
+        }
+    }
 }
