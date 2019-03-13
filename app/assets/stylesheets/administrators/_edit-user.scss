@@ -101,6 +101,10 @@ div.edit-user-page {
             input[type=text] {
                 text-transform: capitalize;
             }
+            input[type=checkbox] {
+                cursor: pointer;
+                justify-self: center;                
+            }
         }
         label {
             font-family: lato, verdana, arial;

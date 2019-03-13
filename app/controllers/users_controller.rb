@@ -74,6 +74,7 @@ class UsersController < ApplicationController
             :year_graduated,
             :employment_status,
             :reason_for_unemployment,
+            :is_verified,
             employment_record_attributes: [
                 :id,
                 :alumnus_record_id,

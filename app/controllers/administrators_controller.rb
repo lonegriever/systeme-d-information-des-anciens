@@ -48,6 +48,7 @@ class AdministratorsController < ApplicationController
         .where("last_name LIKE ?", '%' + session[:last_name] + '%')
         .where(gender: session[:gender])
         .where('course LIKe ?', '%' + session[:course] + '%')
+        .where(is_verified: true)
         if session[:year_graduated].present?
             query_result = query_result.where(year_graduated: session[:year_graduated])
         end

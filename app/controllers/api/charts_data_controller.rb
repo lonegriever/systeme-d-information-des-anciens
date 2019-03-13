@@ -46,11 +46,11 @@ class Api::ChartsDataController < ApplicationController
     end
 
     def initialize_records_for_course
-        @records_for_course = AlumnusRecord.where(course: params[:course])
+        @records_for_course = AlumnusRecord.where(course: params[:course]).where(is_verified: true)
     end
 
     def initialize_employed_records_for_year
-        @employed_count_for_year = AlumnusRecord.where(year_graduated: params[:selectedYear])
+        @employed_count_for_year = AlumnusRecord.where(year_graduated: params[:selectedYear]).where(is_verified: true)
     end
 
     def build_employed_count_result

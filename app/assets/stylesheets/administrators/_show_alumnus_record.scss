@@ -9,6 +9,19 @@
         color: rgba(0, 0, 0, 0.65); 
     }
 
+    div.is-record-verified-identifier {
+        text-align: center;
+        width: 100%;
+        font-size: 1.1em;
+        text-transform: uppercase;
+        div.verified {
+            color: #43A047;
+        }
+        div.not-verified {
+            color: #E53935;
+        }
+    }
+
     div.flash-container {
         margin: 0 auto;
         width: 310px; 
