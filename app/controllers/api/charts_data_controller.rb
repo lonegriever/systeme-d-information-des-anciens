@@ -65,14 +65,24 @@ class Api::ChartsDataController < ApplicationController
                 'Bachelor of Science in Psychology',
                 'Bachelor of Science in Computer Science'
         ]
-        result = {}
+        result = {
+            employed: {},
+            unemployed: {}
+        }
         courses.each do |course|
-            result.store(course, get_employed_count_for_course(course))
+            result[:employed].store(course, get_employed_count_for_course(course))
+        end
+        courses.each do |course|
+            result[:unemployed].store(course, get_unemployed_count_for_course(course))
         end
         result
     end
 
     def get_employed_count_for_course course
-        @employed_count_for_year.where(course: course).count
+        @employed_count_for_year.where(course: course, employment_status: 'employed').count
+    end
+
+    def get_unemployed_count_for_course course
+        @employed_count_for_year.where(course: course, employment_status: 'unemployed').count
     end
 end

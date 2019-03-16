@@ -15,7 +15,7 @@ module ApplicationHelper
 
     def year_graduated_options
         year_options = []
-        80.times do |index|
+        50.times do |index|
             year_options << [(1970 + index).to_s, (1970 + index).to_s]
         end
         year_options

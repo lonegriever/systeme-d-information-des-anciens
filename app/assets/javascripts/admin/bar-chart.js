@@ -15,7 +15,10 @@ function initializeBarChartAdmin() {
             ],
             datasets: [
                 {
-                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"]
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9"]
+                },
+                {
+                    backgroundColor: ["#000000", "#000000","#000000","#000000", "#000000", "#000000", "#000000", "#000000","#000000"]
                 }
             ]
         }
@@ -30,7 +33,14 @@ function initializeBarChartAdmin() {
                     title: {
                         display: true,
                         text: 'Graduate Alumni Population'
-                    }
+                    },
+                    scales: {
+                         xAxes: [{
+                            categoryPercentage: 0.8,
+                            barPercentage: 1
+                        }]
+                    },
+                    tool
                 },
                 plugins: [
                     {
@@ -59,12 +69,13 @@ function updateBarChart(barChart) {
         }
     }).done(function(response) {
         removeAllDataAndLabelsFromChart(barChart);
-        barChart.data.datasets.forEach(dataset => {
-            for (let key in response['data']) {
-                barChart.data.labels.push(key)
-                dataset.data.push(response['data'][key]);
-            }
-        });
+        for (let key in response['data']['employed']) {
+            barChart.data.labels.push(key)
+            barChart.data.datasets[0].data.push(response['data']['employed'][key]);
+        }
+        for (let key in response['data']['unemployed']) {
+            barChart.data.datasets[1].data.push(response['data']['unemployed'][key]);
+        }
         barChart.update();
     });   
 }
