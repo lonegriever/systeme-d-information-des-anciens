@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
-    has_many :events
+    has_many :events, dependent: :destroy
     has_one :alumnus_record, dependent: :destroy
     accepts_nested_attributes_for :alumnus_record
     validates :username, uniqueness: true

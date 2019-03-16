@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-    belongs_to :user
+    belongs_to :user, optional: true
     mount_uploader :file, FileUploader
 
     validates :caption, length: { maximum: 1000 }

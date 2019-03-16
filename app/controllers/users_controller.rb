@@ -26,6 +26,9 @@ class UsersController < ApplicationController
 
     def update
         if @alumnus_record.update(alumnus_record_params)
+            if(alumnus_record_params[:is_verified].present? && alumnus_record_params[:is_verified] == '1')
+                UserMailer.account_verified(@alumnus_record).deliver_now
+            end
             redirect_to show_alumnus_record_path(@alumnus_record.id), notice: "The record has been successfully updated."
         else
             render :edit
