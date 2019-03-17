@@ -3,9 +3,9 @@ class Event < ApplicationRecord
     mount_uploader :file, FileUploader
 
     validates :caption, length: { maximum: 1000 }
-    # validates :file, presence: true
 
     after_create :create_notification_for_users
+    paginates_per 3
 
     private
 

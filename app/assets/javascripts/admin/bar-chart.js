@@ -40,7 +40,17 @@ function initializeBarChartAdmin() {
                             barPercentage: 1
                         }]
                     },
-                    tool
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                if (tooltipItem.datasetIndex == 0) {
+                                    return 'Employed';
+                                } else {
+                                    return 'Unemployed'
+                                }
+                            }
+                        }
+                    }
                 },
                 plugins: [
                     {

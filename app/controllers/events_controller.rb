@@ -4,7 +4,7 @@ class EventsController < ApplicationController
     before_action :check_if_user_is_logged_in
     before_action :check_if_user_is_an_admin, only: [:create, :new]
     def index
-        @events = Event.all
+        @events = Event.all.order('created_at DESC').page(params[:page])
     end
 
     def create

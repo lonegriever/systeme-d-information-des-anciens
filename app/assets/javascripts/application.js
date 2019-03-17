@@ -23,6 +23,7 @@ $(document).on('turbolinks:load', function() {
     administrators();
     users();
     userNavigation();
+    eventsIndex();
     $(this).keypress(
         function(event) {
             if (event.which == '13') {

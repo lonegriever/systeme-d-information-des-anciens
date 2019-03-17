@@ -3,5 +3,12 @@
     <div class="events-header-image-container">
         <%= image_tag 'upcoming-events.png', class: 'events-header-image' %>
     </div>
-    <%= render @events.order('created_at DESC') %>
+    <div class="calendar-section">
+        <div id="events-index-calendar"></div>
+    </div>
+     <%= render @events %>  
+    <div class="pagination-links">
+        <%= paginate @events %>
+    </div> 
+
 </div>
