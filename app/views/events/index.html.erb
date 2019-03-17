@@ -6,9 +6,16 @@
     <div class="calendar-section">
         <div id="events-index-calendar"></div>
     </div>
+    <div class="search-events-section">
+        <div class="search-event-input-container">
+            <input type="text" class="search-event-input" placeholder="Enter event details here">    
+        </div>
+        <div class="submit-button-container">
+            <button type="submit">Search Event</button>
+        </div>
+    </div>
      <%= render @events %>  
     <div class="pagination-links">
         <%= paginate @events %>
     </div> 
-
 </div>
