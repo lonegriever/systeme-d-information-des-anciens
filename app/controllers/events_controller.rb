@@ -4,10 +4,11 @@ class EventsController < ApplicationController
     before_action :check_if_user_is_logged_in
     before_action :check_if_user_is_an_admin, only: [:create, :new]
     def index
-        @events = Event.where('caption ilike ?', '%' + params[:event_name] + '%')
+        event_name = params[:event_name].present? ? params[:event_name] : ''
+        @events = Event.where('caption ilike ?', '%' + event_name + '%')
             .order('created_at DESC').page(params[:page])
     end
-
+    
     def create
         @event = Event.new(event_params)
         if @event.save
