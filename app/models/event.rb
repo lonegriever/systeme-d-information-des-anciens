@@ -2,7 +2,7 @@ class Event < ApplicationRecord
     belongs_to :user, optional: true
     mount_uploader :file, FileUploader
 
-    validates :caption, length: { maximum: 1000 }
+    validates :caption, length: { maximum: 2000 }
 
     after_create :create_notification_for_users
     paginates_per 3
