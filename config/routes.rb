@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
 
     scope '/users' do
+        get     '',                 to: 'users#new'
         get     '/register',        to: 'users#new',       as: 'new_users'
         post    '/create',          to: 'users#create',    as: 'create_user'
         get     '/create',          to: 'users#new'

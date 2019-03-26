@@ -10,7 +10,8 @@ function users() {
         yearRange: '1950:2019',
         changeMonth: true,
         changeYear: true,
-        dateFormat: 'MM dd, yy'
+        dateFormat: 'MM dd, yy',
+        maxDate: '-1d'
     })
 
     let current_form_window;
